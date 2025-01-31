@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 echo "Helo";
 
 require_once __DIR__ . "/core/Router.php";
@@ -18,5 +20,10 @@ $router->get("/articles/{slug}", ArticleController::class, "index");
 $router->get("/register", RegisterController::class, "index");
 
 $router->get("/upload", UploadController::class, "index");
+
+$router->get('/upload', 'UploadController', 'index');
+$router->post('/upload', 'UploadController', 'upload');
+
+
 
 $router->start();
