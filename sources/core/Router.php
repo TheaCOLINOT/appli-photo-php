@@ -1,6 +1,4 @@
 <?php
-class Router {
-    private array $routes;
 
 class Router
 {

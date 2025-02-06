@@ -13,6 +13,7 @@ require_once __DIR__ . '/controllers/HomeController.php';
 require_once __DIR__ . '/controllers/LoginController.php';
 require_once __DIR__ . '/controllers/RegisterController.php';
 require_once __DIR__ . '/controllers/LogoutController.php';
+require_once __DIR__ . '/controllers/UploadController.php';
 
 $router = new Router();
 
@@ -22,9 +23,6 @@ $router->get("/upload", UploadController::class, "index");
 
 $router->get('/upload', 'UploadController', 'index');
 $router->post('/upload', 'UploadController', 'upload');
-
-$router->get('/groupes/{id}/photos', 'PhotoController', 'showByGroup');
-
 
 $router->get('/', HomeController::class, 'index');
 $router->get('/login', LoginController::class, 'index');
