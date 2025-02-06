@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__.'/../models/Photo.php';
+
 class UploadController {
     private const UPLOAD_DIR = 'uploads/';
     private const MAX_SIZE = 5 * 1024 * 1024; // 5MB
@@ -14,11 +16,11 @@ class UploadController {
     public static function upload(): void 
     {
         // Vérification de connexion
-        // if (!isset($_SESSION["user_id"]) || empty($_SESSION["user_id"])) {
-        //     $_SESSION['error'] = "Vous devez être connecté pour uploader une photo.";
-        //     header("Location: /login");
-        //     exit();
-        // }
+        if (Session::get('user') == null) {
+            $_SESSION['error'] = "Vous devez être connecté pour uploader une photo.";
+            header("Location: /login");
+            exit();
+        }
 
         // Vérification de la requête
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_FILES['photo'])) {
@@ -79,9 +81,13 @@ class UploadController {
         }
 
         // Sauvegarde en base de données
-        require_once 'models/Photo.php';
-        $photo = new Photo();
-        if ($photo->savePhoto($userId, $filename)) {
+        // $photo = new Photo();
+        $data = [
+            'user_id' => Session::get('user')["id"],
+            'path' => $filePath
+        ];
+        
+        if (Photo::upload($data)) {
             $_SESSION['success'] = "Photo uploadée avec succès !";
         } else {
             $_SESSION['error'] = "Erreur lors de l'enregistrement de la photo.";

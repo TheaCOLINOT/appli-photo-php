@@ -1,12 +1,22 @@
 <?php
 
-require_once 'Database.php';
-
 class Photo {
-    public function savePhoto($userId, $filename) {
+    private function __construct(
+        public int $user_id,
+        public string $path
+    ) {}
+
+    public static function upload(array $data): bool {
         $db = Database::getInstance();
-        $stmt = $db->prepare("INSERT INTO photos (user_id, filename, uploaded_at) VALUES (?, ?, NOW())");
-        return $stmt->execute([$userId, $filename]);
+        $query = $db->prepare("
+            INSERT INTO photos (user_id, path)
+            VALUES (:user_id, :path)
+        ");
+
+        return $query->execute([
+            'user_id' => $data['user_id'],
+            'path' => $data['path']
+        ]);
     }
+
 }
-?>
