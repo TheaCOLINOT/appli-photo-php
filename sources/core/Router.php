@@ -1,5 +1,7 @@
 <?php
-class Router {
+
+class Router
+{
     private array $routes;
 
     public function __construct() {
@@ -14,6 +16,7 @@ class Router {
             "methodName" => $methodName
         ];
     }
+
 
     public function post(string $path, string $controllerName, string $methodName): void {
         $this->routes[] = [

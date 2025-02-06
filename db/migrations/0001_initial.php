@@ -22,6 +22,13 @@ try {
         token_expiration DATETIME DEFAULT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+      
+      CREATE TABLE IF NOT EXISTS photos (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL,
+        path VARCHAR(255) NOT NULL,
+        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ";
 
     $databaseConnection->exec($sql);
