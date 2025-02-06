@@ -1,19 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php ob_start(); ?>
+<div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+  <h2 class="text-2xl font-bold mb-6">Connexion</h2>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
+  <?php if (Session::hasError('auth')): ?>
+    <div class="mb-4 p-4 bg-red-100 text-red-700 rounded">
+      <?php echo Session::getError('auth'); ?>
+    </div>
+  <?php endif; ?>
 
-<body>
   <form method="POST" action="/login">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <button>
-      Connexion
-    </button>
-  </form>
-</body>
+    <div class="mb-4">
+      <label class="block text-gray-700">Email</label>
+      <input type="email" name="email" class="w-full border rounded px-3 py-2"
+        value="<?php echo htmlspecialchars(Session::getOldInput('email')); ?>">
+      <?php if (Session::hasError('email')): ?>
+        <p class="text-red-500 text-sm"><?php echo Session::getError('email'); ?></p>
+      <?php endif; ?>
+    </div>
 
-</html>
+    <div class="mb-6">
+      <label class="block text-gray-700">Mot de passe</label>
+      <input type="password" name="password" class="w-full border rounded px-3 py-2">
+      <?php if (Session::hasError('password')): ?>
+        <p class="text-red-500 text-sm"><?php echo Session::getError('password'); ?></p>
+      <?php endif; ?>
+    </div>
+
+    <div class="flex items-center justify-between mb-6">
+      <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">
+        Se connecter
+      </button>
+      <a href="/password-reset" class="text-sm text-blue-500 hover:text-blue-700">
+        Mot de passe oublié ?
+      </a>
+    </div>
+  </form>
+
+  <p class="text-center text-gray-600 text-sm">
+    Pas encore de compte ? <a href="/register" class="text-blue-500 hover:text-blue-700">S'inscrire</a>
+  </p>
+</div>
+<?php
+$content = ob_get_clean();
+require __DIR__ . '/../layout.php';
+?>
