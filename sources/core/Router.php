@@ -1,27 +1,27 @@
 <?php
 
+require_once 'controllers/GroupPhotoController.php';
+
 class Router
 {
     private array $routes;
 
     public function __construct() {
-        $this->routes = [];
+        $this->routes = [
+            "GET" => [],
+            "POST" => []
+        ];
     }
 
     public function get(string $path, string $controllerName, string $methodName): void {
-        $this->routes[] = [
-            "method" => "GET",
-            "path" => $path,
+        $this->routes["GET"][$path] = [
             "controllerName" => $controllerName,
             "methodName" => $methodName
         ];
     }
 
-
     public function post(string $path, string $controllerName, string $methodName): void {
-        $this->routes[] = [
-            "method" => "POST",
-            "path" => $path,
+        $this->routes["POST"][$path] = [
             "controllerName" => $controllerName,
             "methodName" => $methodName
         ];
@@ -30,34 +30,41 @@ class Router
     public function start(): void {
         $method = $_SERVER["REQUEST_METHOD"];
         $path = $_SERVER["REQUEST_URI"];
-
+        $path = strtolower($path);
         // Supprimer les paramètres de requête de l'URL
         $path = strtok($path, '?');
 
-        foreach ($this->routes as $route) {
-            // Conversion du motif de route en expression régulière
-            $pattern = preg_replace('/\{([^}]+)\}/', '([^/]+)', $route["path"]);
-            $pattern = "@^" . $pattern . "$@D";
+        //var_dump($method, $path, $this->routes);
+        // exit();
 
-            if ($method === $route["method"] && preg_match($pattern, $path, $matches)) {
-                array_shift($matches); // Supprime la première correspondance (chemin complet)
-                $methodName = $route["methodName"];
-                $controllerName = $route["controllerName"];
-
-                // Vérifier que la classe existe
-                if (!class_exists($controllerName)) {
-                    header("HTTP/1.0 500 Internal Server Error");
-                    echo "Erreur : la classe {$controllerName} n'existe pas.";
-                    return;
-                }
-
-                call_user_func_array([$controllerName, $methodName], $matches);
-                return;
-            }
+        // Vérifier si la route existe
+        if (!isset($this->routes[$method][$path])) {
+            header("HTTP/1.0 404 Not Found");
+            require_once __DIR__ . '/../views/404.php';
+            exit();
         }
-        
-        // Route non trouvée
-        header("HTTP/1.0 404 Not Found");
-        require_once __DIR__ . '/../views/404.php';
+
+        $route = $this->routes[$method][$path];
+        $controllerName = $route["controllerName"];
+        $methodName = $route["methodName"];
+
+        // Vérifier que la classe existe
+        if (!class_exists($controllerName)) {
+            header("HTTP/1.0 500 Internal Server Error");
+            echo "Erreur : la classe {$controllerName} n'existe pas.";
+            exit();
+        }
+
+        // Vérifier que la méthode existe dans le contrôleur
+        if (!method_exists($controllerName, $methodName)) {
+            header("HTTP/1.0 500 Internal Server Error");
+            echo "Erreur : la méthode {$methodName} n'existe pas dans le contrôleur {$controllerName}.";
+            exit();
+        }
+
+        // Instancier le contrôleur et appeler la méthode
+        $controllerInstance = new $controllerName();
+        call_user_func([$controllerInstance, $methodName]);
     }
+
 }
