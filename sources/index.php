@@ -33,18 +33,20 @@ $router->get('/register', RegisterController::class, 'index');
 $router->post('/register', RegisterController::class, 'post');
 // Routes pour la réinitialisation du mot de passe
 
-$router->get('/groups', 'GroupPhotoController', 'index');
-$router->post('/groups/create', 'GroupPhotoController', 'create');
-$router->post('/groups/addUser', 'GroupPhotoController', 'addUser');
-$router->post('/groups/removeUser', 'GroupPhotoController', 'removeUser');
-$router->post('/groups/changeRole', 'GroupPhotoController', 'changeRole');
-$router->get('/groups', 'GroupPhotoController', 'index');
+// $router->get('/groups', 'GroupPhotoController', 'index');
+// $router->post('/groups/create', 'GroupPhotoController', 'create');
+// $router->post('/groups/addUser', 'GroupPhotoController', 'addUser');
+// $router->post('/groups/removeUser', 'GroupPhotoController', 'removeUser');
+// $router->post('/groups/changeRole', 'GroupPhotoController', 'changeRole');
+// $router->get('/groups', 'GroupPhotoController', 'index');
 
-$router->get('/catagroup', 'CatalogueGroup', 'index');
-$router->get('/CatalogueGroup/photos', 'CatalogueGroup', 'index');
 
 $router->get('/catalog', 'CataloguePhoto', 'index');
 $router->get('/group/photos', 'CataloguePhoto', 'index');
+
+$router->get('/groups', 'CatalogueGroup', 'index');
+$router->post('/groups', 'CatalogueGroup', 'create');
+
 
 $router->get('/logout', LogoutController::class, 'index');
 

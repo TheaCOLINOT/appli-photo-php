@@ -11,10 +11,10 @@ class CatalogueGroup
         $groupModel = new GroupModel();
         $groups = $groupModel->getUserGroups($userId);
         
-        require_once __DIR__ .  '/../views/group/index.php';
+        require_once __DIR__ .  '/../views/groups/index.php';
     }
 
-    public static function upload(): void 
+    public static function create(): void 
     {
         // Vérification de connexion
         if (Session::get('user') == null) {
@@ -24,24 +24,25 @@ class CatalogueGroup
         }
 
         // Vérification de la requête
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_FILES['photo'])) {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_POST['name'])) {
             $_SESSION['error'] = "Aucun fichier envoyé.";
-            header("Location: /upload");
+            header("Location: /groups");
             exit();
         }
 
         $data = [
-            'user_id' => Session::get('user')["id"],
-            'path' => $filePath
+            'owner_id' => Session::get('user')["id"],
+            'name' => htmlspecialchars($_POST['name']),
+            'description' => empty($_POST['description']) ? null : htmlspecialchars($_POST['description'])
         ];
         
-        if (Photo::upload($data)) {
-            $_SESSION['success'] = "Photo uploadée avec succès !";
+        if (GroupModel::create($data)) {
+            $_SESSION['success'] = "Groupe crée avec succès !";
         } else {
-            $_SESSION['error'] = "Erreur lors de l'enregistrement de la photo.";
+            $_SESSION['error'] = "Erreur lors de la création du groupe";
         }
 
-        header("Location: /upload");
+        header("Location: /groups");
         exit();
     }
 }

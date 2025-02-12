@@ -12,6 +12,7 @@ CREATE TABLE `GROUPS_TO_PHOTOS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `GROUP_USERS` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `role` varchar(255) NOT NULL
