@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'/../models/CatalogueGroup.php';
 class CatalogueGroup 
 {
     public static function index(): void 
@@ -7,7 +8,7 @@ class CatalogueGroup
         $groupModel = new GroupModel();
         $groups = $groupModel->getUserGroups($userId);
         
-        require_once __DIR__ .  'views/group/index.php';
+        require_once __DIR__ .  '/../views/group/index.php';
     }
 }
 ?>

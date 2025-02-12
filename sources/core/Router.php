@@ -1,7 +1,5 @@
 <?php
 
-require_once 'controllers/GroupPhotoController.php';
-
 class Router
 {
     private array $routes;

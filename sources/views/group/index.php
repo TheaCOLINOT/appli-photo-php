@@ -1,4 +1,4 @@
-<?php require 'views/layout/header.php'; ?>
+<?php ob_start(); ?>
 
 <h2>Photos du Groupe</h2>
 
@@ -15,4 +15,7 @@
     </div>
 <?php endif; ?>
 
-<?php require 'views/layout/footer.php'; ?>
+<?php
+$content = ob_get_clean();
+require __DIR__ . '/../layout.php';
+?>

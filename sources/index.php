@@ -43,7 +43,7 @@ $router->get('/groups', 'GroupPhotoController', 'index');
 $router->get('/catagroup', 'CatalogueGroup', 'index');
 $router->get('/CatalogueGroup/photos', 'CatalogueGroup', 'index');
 
-$router->get('/CataloguePhoto', 'CataloguePhoto', 'index');
+$router->get('/cataphoto', 'CataloguePhoto', 'index');
 $router->get('/group/photos', 'CataloguePhoto', 'index');
 
 $router->get('/logout', LogoutController::class, 'index');
