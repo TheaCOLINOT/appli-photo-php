@@ -15,6 +15,7 @@ services:
     volumes:
       - ./docker/nginx/templates:/etc/nginx/templates
       - ./sources:$PHP_USER_HOME_DIRECTORY
+      - ./vendor:/home/php/vendor
     ports:
       - $SERVER_PORT:80
 
@@ -38,7 +39,7 @@ services:
     user: php
     volumes:
       - ./sources:$PHP_USER_HOME_DIRECTORY
-
+      - ./vendor:/home/php/vendor
   migration:
     container_name: migration
     restart: unless-stopped

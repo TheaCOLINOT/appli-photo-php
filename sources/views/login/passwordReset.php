@@ -8,7 +8,7 @@
     </div>
   <?php endif; ?>
 
-  <form method="POST" action="/login">
+  <form method="POST" action="/passwordReset">
     <div class="mb-4">
       <label class="block text-gray-700">Email</label>
       <input type="email" name="email" class="w-full border rounded px-3 py-2"
@@ -18,21 +18,10 @@
       <?php endif; ?>
     </div>
 
-    <div class="mb-6">
-      <label class="block text-gray-700">Mot de passe</label>
-      <input type="password" name="password" class="w-full border rounded px-3 py-2">
-      <?php if (Session::hasError('password')): ?>
-        <p class="text-red-500 text-sm"><?php echo Session::getError('password'); ?></p>
-      <?php endif; ?>
-    </div>
-
     <div class="flex items-center justify-between mb-6">
       <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">
-        Se connecter
+        Recevoir un lien de réinitialisation
       </button>
-      <a href="/passwordReset" class="text-sm text-blue-500 hover:text-blue-700">
-        Mot de passe oublié ?
-      </a>
     </div>
   </form>
 

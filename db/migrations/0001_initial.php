@@ -29,6 +29,9 @@ try {
         path VARCHAR(255) NOT NULL,
         date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+      ALTER TABLE users ADD COLUMN reset_token VARCHAR(255) NULL;
+
     ";
 
     $databaseConnection->exec($sql);
