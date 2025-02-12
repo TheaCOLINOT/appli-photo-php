@@ -78,10 +78,10 @@ class MailController {
     public static function passwordResetEmail() {
         $mail = new PHPMailer(true); 
         $host="smtp.gmail.com";
-        $username="joelemanuel12345@gmail.com";
-        $password="Lovecode$1";
-        $port=465;
-        $mailfromaddress= "joelemanuel12345@gmail.com";
+        $username="mariam.bouhassoune40@gmail.com";
+        $password="tokv hrqb vlqa bcyf";
+        $port=587;
+        $mailfromaddress= "mariam.bouhassoune40@gmail.com";
 
         try {
             // Server settings
