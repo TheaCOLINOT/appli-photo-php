@@ -2,7 +2,6 @@
 // require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../requests/LoginRequest.php';
-require_once __DIR__ . '/../core/Config.php';
 require_once __DIR__ . '/../core/Database.php';
 
 class LoginController {

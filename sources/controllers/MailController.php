@@ -1,7 +1,6 @@
 <?php
  
 require_once __DIR__ . '/../models/User.php';
-require_once __DIR__ . '/../core/Config.php';
 require_once __DIR__ . '/../core/Database.php';
 require_once __DIR__ . '/../core/Session.php';
 require_once __DIR__ . '/../core/Router.php';
