@@ -59,6 +59,7 @@ services:
     user: php
     volumes:
       - ./db:$PHP_USER_HOME_DIRECTORY
+    command: php /home/php/migrations/0001_initial.php
 
   mariadb:
     container_name: mariadb
@@ -77,5 +78,18 @@ services:
       MARIADB_USER: $DATABASE_USER
       MARIADB_PASSWORD: $DATABASE_PASSWORD
       MARIADB_DATABASE: $DATABASE_NAME
+    ports:
+      - "3306:3306"
     volumes:
       - ./database:/var/lib/mysql
+  phpmyadmin:
+    container_name: phpmyadmin
+    restart: unless-stopped
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
