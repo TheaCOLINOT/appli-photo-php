@@ -1,41 +1,65 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Application</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Mon Site</title>
+    <link rel="stylesheet" href="../public/assets/css/main.css">
 </head>
-<body class="bg-gray-100">
-    <nav class="bg-white shadow-lg mb-8">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <div class="flex space-x-4">
-                    <a href="/" class="py-4 px-2 hover:text-blue-500">Accueil</a>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+     
+                <ul class="nav__menu">
+                    <li class="nav__item">
+                        <a href="/" class="nav__link">Accueil</a>
+                    </li>
                     <?php if (!Session::get('user')): ?>
-                        <a href="/login" class="py-4 px-2 hover:text-blue-500">Connexion</a>
-                        <a href="/register" class="py-4 px-2 hover:text-blue-500">Inscription</a>
+                        <li class="nav__item">
+                            <a href="/login" class="nav__link">Connexion</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/register" class="nav__link">Inscription</a>
+                        </li>
                     <?php else: ?>
-                        <a href="/upload/manage" class="py-4 px-2 hover:text-blue-500">Mes photos</a>
-                        <a href="/group" class="py-4 px-2 hover:text-blue-500">Groupe</a>
+                        <li class="nav__item">
+                            <a href="/upload/manage" class="nav__link">Mes photos</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/group" class="nav__link">Groupe</a>
+                        </li>
+                        <li class="nav__item">
+                            <span class="nav__user">Bienvenue, <?php echo htmlspecialchars(Session::get('user')['prenom']); ?></span>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/logout" class="nav__link">Déconnexion</a>
+                        </li>
                     <?php endif; ?>
-                </div>
-                <?php if (Session::get('user')): ?>
-                    <div class="flex items-center space-x-4">
-                        <span class="py-4 px-2">Bienvenue, <?php echo htmlspecialchars(Session::get('user')['prenom']); ?></span>
-                        <a href="/logout" class="py-4 px-2 hover:text-blue-500">Déconnexion</a>
-                    </div>
-                <?php endif; ?>
+                    <li class="nav__item">
+                        <button class="button button--secondary" id="themeToggle">
+                            🌙
+                        </button>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </nav>
-    <div class="container mx-auto px-4">
+        </nav>
+    </header>
+
+    <main class="container">
         <?php if ($flash = Session::getFlash()): ?>
-            <div class="mb-4 p-4 rounded <?php echo ($flash['type'] === 'success') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'; ?>">
+            <div class="flash-message <?php echo ($flash['type'] === 'success') ? 'flash-success' : 'flash-error'; ?>">
                 <?php echo htmlspecialchars($flash['message']); ?>
             </div>
         <?php endif; ?>
         <?php echo $content ?? ''; ?>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MonSite. Tous droits réservés.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

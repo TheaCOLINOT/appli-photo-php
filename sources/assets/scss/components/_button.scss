@@ -1,0 +1,49 @@
+// Button Component
+.button {
+  $block: &;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: var(--transition-base);
+  cursor: pointer;
+  
+  // Variants
+  &--primary {
+    background-color: var(--color-primary);
+    color: white;
+    
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+  }
+  
+  &--secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    
+    &:hover {
+      background-color: var(--color-text-light);
+    }
+  }
+  
+  // Sizes
+  &--small {
+    padding: calc(var(--spacing-xs) / 2) var(--spacing-xs);
+    font-size: 0.875rem;
+  }
+  
+  &--large {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.125rem;
+  }
+  
+  // States
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,41 @@
+// Form Components
+.form {
+  $block: &;
+  
+  &__group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  &__label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  
+  &__input {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-text-light);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: var(--transition-base);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px var(--color-primary-light);
+    }
+    
+    &--error {
+      border-color: var(--color-error);
+    }
+  }
+  
+  &__error {
+    color: var(--color-error);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+  }
+}

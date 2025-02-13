@@ -1,0 +1,58 @@
+/* Base Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-base);
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+.dark {
+  h1, h2, h3, h4, h5, h6, p {
+    color: var(--color-text);
+  }
+
+  a {
+    color: var(--color-primary-light);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}

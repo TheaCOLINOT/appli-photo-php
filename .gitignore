@@ -3,3 +3,4 @@
 **/database
 **/uploads/
 /vendor/
+node_modules
