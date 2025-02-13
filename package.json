@@ -4,7 +4,8 @@
   "description": "Framework CSS/JS pour appli-photo-php",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch"
+    "dev": "webpack --mode development --watch",
+    "watch": "sass --watch sources/assets/scss/main.scss sources/public/assets/css/main.css"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",

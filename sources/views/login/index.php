@@ -27,14 +27,15 @@
     </div>
 
     <div class="flex items-center justify-between mb-6">
-      <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">
+      <button type="submit" class="button button--primary">
         Se connecter
       </button>
-      <a href="/password-reset" class="text-sm text-blue-500 hover:text-blue-700">
+      <a href="/password-reset" class="button button--secondary">
         Mot de passe oublié ?
       </a>
     </div>
   </form>
+
 
   <p class="text-center text-gray-600 text-sm">
     Pas encore de compte ? <a href="/register" class="text-blue-500 hover:text-blue-700">S'inscrire</a>
