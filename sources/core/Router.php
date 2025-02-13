@@ -1,14 +1,18 @@
 <?php
-class Router {
+
+class Router
+{
     private array $routes;
 
     public function __construct() {
-        $this->routes = [];
+        $this->routes = [
+            "GET" => [],
+            "POST" => []
+        ];
     }
 
     public function get(string $path, string $controllerName, string $methodName): void {
-        $this->routes[] = [
-            "method" => "GET",
+        $this->routes["GET"][] = [
             "path" => $path,
             "controllerName" => $controllerName,
             "methodName" => $methodName
@@ -16,8 +20,7 @@ class Router {
     }
 
     public function post(string $path, string $controllerName, string $methodName): void {
-        $this->routes[] = [
-            "method" => "POST",
+        $this->routes["POST"][] = [
             "path" => $path,
             "controllerName" => $controllerName,
             "methodName" => $methodName
@@ -26,35 +29,44 @@ class Router {
 
     public function start(): void {
         $method = $_SERVER["REQUEST_METHOD"];
-        $path = $_SERVER["REQUEST_URI"];
+        $uri = $_SERVER["REQUEST_URI"];
+        $uri = strtolower($uri);
 
         // Supprimer les paramètres de requête de l'URL
-        $path = strtok($path, '?');
+        $uri = strtok($uri, '?');
 
-        foreach ($this->routes as $route) {
-            // Conversion du motif de route en expression régulière
-            $pattern = preg_replace('/\{([^}]+)\}/', '([^/]+)', $route["path"]);
-            $pattern = "@^" . $pattern . "$@D";
+        // Vérifier les routes
+        foreach ($this->routes[$method] as $route) {
+            $pattern = preg_replace('#\{([a-zA-Z0-9_]+)\}#', '([^/]+)', $route["path"]);
+            $pattern = "#^" . $pattern . "$#";
 
-            if ($method === $route["method"] && preg_match($pattern, $path, $matches)) {
-                array_shift($matches); // Supprime la première correspondance (chemin complet)
-                $methodName = $route["methodName"];
+            if (preg_match($pattern, $uri, $matches)) {
+                array_shift($matches); // Supprime le premier élément (URL complète)
+
                 $controllerName = $route["controllerName"];
+                $methodName = $route["methodName"];
 
-                // Vérifier que la classe existe
                 if (!class_exists($controllerName)) {
                     header("HTTP/1.0 500 Internal Server Error");
                     echo "Erreur : la classe {$controllerName} n'existe pas.";
-                    return;
+                    exit();
                 }
 
-                call_user_func_array([$controllerName, $methodName], $matches);
+                if (!method_exists($controllerName, $methodName)) {
+                    header("HTTP/1.0 500 Internal Server Error");
+                    echo "Erreur : la méthode {$methodName} n'existe pas dans le contrôleur {$controllerName}.";
+                    exit();
+                }
+
+                $controllerInstance = new $controllerName();
+                call_user_func_array([$controllerInstance, $methodName], $matches);
                 return;
             }
         }
-        
-        // Route non trouvée
+
+        // Si aucune route ne correspond, afficher une erreur 404
         header("HTTP/1.0 404 Not Found");
         require_once __DIR__ . '/../views/404.php';
+        exit();
     }
 }
