@@ -15,6 +15,9 @@
                     <li class="nav__item">
                         <a href="/" class="nav__link">Accueil</a>
                     </li>
+                    <li class="nav__item">
+                        <a href="/" class="nav__link">Galerie</a>
+                    </li>
                     <?php if (!Session::get('user')): ?>
                         <li class="nav__item">
                             <a href="/login" class="nav__link">Connexion</a>
@@ -36,11 +39,7 @@
                             <a href="/logout" class="nav__link">Déconnexion</a>
                         </li>
                     <?php endif; ?>
-                    <li class="nav__item">
-                        <button class="button button--secondary" id="themeToggle">
-                            🌙
-                        </button>
-                    </li>
+                    
                 </ul>
             </div>
         </nav>
