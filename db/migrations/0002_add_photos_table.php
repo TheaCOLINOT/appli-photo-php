@@ -36,22 +36,35 @@ try {
     ";
     $databaseConnection->exec($sql);
 
-    // 3. Modification de la table photos pour ajouter la colonne group_id et la contrainte associée
-  
-    $sql = "
-        ALTER TABLE photos 
-            ADD COLUMN group_id INT DEFAULT NULL,
-            ADD CONSTRAINT fk_photo_group FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE SET NULL;
-    ";
-    $databaseConnection->exec($sql);
+    // 3. Vérification avant d'ajouter la colonne `group_id` à la table photos
+    $checkColumnQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'photos' AND COLUMN_NAME = 'group_id'";
+    $columnExists = $databaseConnection->query($checkColumnQuery)->fetchColumn();
 
-    // 4. Modification de la table photos pour ajouter les colonnes share_token et visibility
-    $sql = "
-        ALTER TABLE photos 
-            ADD COLUMN share_token VARCHAR(255) DEFAULT NULL,
-            ADD COLUMN visibility ENUM('public', 'group') DEFAULT 'group';
-    ";
-    $databaseConnection->exec($sql);
+    if (!$columnExists) {
+        $sql = "ALTER TABLE photos ADD COLUMN group_id INT DEFAULT NULL;";
+        $databaseConnection->exec($sql);
+        $sql = "ALTER TABLE photos ADD CONSTRAINT fk_photo_group FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE SET NULL;";
+        $databaseConnection->exec($sql);
+    } else {
+        echo "La colonne group_id existe déjà dans la table photos. Aucune modification nécessaire.\n";
+    }
+
+    // 4. Vérification avant d'ajouter les colonnes `share_token` et `visibility`
+    $checkShareToken = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'photos' AND COLUMN_NAME = 'share_token'";
+    $shareTokenExists = $databaseConnection->query($checkShareToken)->fetchColumn();
+
+    if (!$shareTokenExists) {
+        $sql = "ALTER TABLE photos ADD COLUMN share_token VARCHAR(255) DEFAULT NULL;";
+        $databaseConnection->exec($sql);
+    }
+
+    $checkVisibility = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'photos' AND COLUMN_NAME = 'visibility'";
+    $visibilityExists = $databaseConnection->query($checkVisibility)->fetchColumn();
+
+    if (!$visibilityExists) {
+        $sql = "ALTER TABLE photos ADD COLUMN visibility ENUM('public', 'group') DEFAULT 'group';";
+        $databaseConnection->exec($sql);
+    }
 
     echo "Migration 0002 exécutée avec succès.\n";
 } catch (PDOException $e) {
