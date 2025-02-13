@@ -30,12 +30,12 @@ class LoginController {
             // Pour renforcer la sécurité, régénérer l'ID de session pour éviter la fixation de session
             session_regenerate_id(true);
 
-            // Vous pouvez générer un token de session pour une vérification additionnelle si nécessaire
+
             $sessionToken = bin2hex(random_bytes(16));
 
             Session::set('user', [
                 'id'      => $user->id,
-                'prenom'  => $user->prenom, // Assurez-vous que ce champ existe dans votre table users
+                'prenom'  => $user->prenom, 
                 'email'   => $user->email,
                 'token'   => $sessionToken
             ]);

@@ -37,7 +37,7 @@ try {
     $databaseConnection->exec($sql);
 
     // 3. Modification de la table photos pour ajouter la colonne group_id et la contrainte associée
-    // ATTENTION : Assurez-vous que la table photos existe déjà (créée dans une migration antérieure)
+  
     $sql = "
         ALTER TABLE photos 
             ADD COLUMN group_id INT DEFAULT NULL,

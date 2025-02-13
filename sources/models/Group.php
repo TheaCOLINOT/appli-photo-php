@@ -29,7 +29,7 @@ class Group
             'owner_id' => $data['owner_id']
         ])) {
             $groupId = $db->lastInsertId();
-            // Optionnel : ajouter le propriétaire dans la table d'association (group_users)
+            
             self::addUser($groupId, $data['owner_id'], 'write');
             return self::getById($groupId);
         }
