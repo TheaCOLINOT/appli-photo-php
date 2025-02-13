@@ -4,7 +4,7 @@ require_once __DIR__.'/../models/Photo.php';
 
 class CataloguePhoto {
 
-    public static function index(): void
+    public static function index($slug = null): void
     {
         // Vérification de connexion
         if (Session::get('user') == null) {
@@ -13,14 +13,17 @@ class CataloguePhoto {
             exit();
         }
 
-        if(empty($_GET["groupid"])) {
+        if(empty($slug)) {
             $photos = Photo::getAllByUser(Session::get('user')['id']);
+        } else {
+            $photos = Photo::getAllByGroup(htmlspecialchars($slug));
         }
+
         require_once __DIR__ . '/../views/catalogs/photos/index.php';
     }
 
     public function showByGroup() {
-        $groupID = $_GET["groupid"];
+        $groupID = $slug;
         
         $photos = $photoModel->getGroupPhotos($groupId);
         

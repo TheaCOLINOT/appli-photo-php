@@ -42,7 +42,8 @@ $router->post('/register', RegisterController::class, 'post');
 
 
 $router->get('/catalog', 'CataloguePhoto', 'index');
-$router->get('/group/photos', 'CataloguePhoto', 'index');
+$router->get('/catalog/{slug}', 'CataloguePhoto', 'index');
+// $router->get('/group/photos', 'CataloguePhoto', 'index');
 
 $router->get('/groups', 'CatalogueGroup', 'index');
 $router->post('/groups', 'CatalogueGroup', 'create');

@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__.'/../models/Photo.php';
+require_once __DIR__.'/../models/CatalogueGroup.php';
 
 class UploadController {
     private const UPLOAD_DIR = 'uploads/';
@@ -10,6 +11,15 @@ class UploadController {
 
     public static function index(): void 
     {
+        // Vérification de connexion
+        if (Session::get('user') == null) {
+            $_SESSION['error'] = "Vous devez être connecté pour uploader une photo.";
+            header("Location: /login");
+            exit();
+        }
+
+        $groups = GroupModel::getUserGroups(Session::get('user')["id"]);
+
         require_once 'views/upload/index.php';
     }
 
