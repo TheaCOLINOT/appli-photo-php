@@ -21,6 +21,7 @@
                         </span>
                         <a href="/upload" class="py-4 px-2 hover:text-blue-500">Uploader une photo</a>
                         <a href="/catalog" class="py-4 px-2 hover:text-blue-500">Mes photos</a>
+                        <a href="/catalog" class="py-4 px-2 hover:text-blue-500">Groupes</a>
                         <a href="/logout" class="py-4 px-2 hover:text-blue-500">Déconnexion</a>
                     <?php endif; ?>
                 </div>
