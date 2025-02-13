@@ -19,6 +19,7 @@ class PasswordResetController {
         }
     
         $email = PasswordResetToken::validateToken($token);
+        
         if (!$email) {
             die("Lien expiré ou invalide.");
         }

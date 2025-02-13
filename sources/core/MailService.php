@@ -19,7 +19,7 @@ class MailService
             $port = 587;
             $mailfromaddress = "mariam.bouhassoune40@gmail.com";
 
-            $resetLink = "http://localhost/reset-password?token=" . urlencode($token);
+            $resetLink = "http://localhost:8000/reset-password?token=" . urlencode($token);
             // Configuration SMTP
             $mail->isSMTP();
             $mail->Host = $host;

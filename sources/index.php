@@ -6,14 +6,19 @@ Session::start();
 
 require_once __DIR__ . '/core/Database.php';
 require_once __DIR__ . '/core/Router.php';
+require_once __DIR__ . '/core/MailService.php';
 
 require_once __DIR__ . '/models/User.php';
+require_once __DIR__ . '/models/PasswordResetToken.php';
 
 require_once __DIR__ . '/controllers/HomeController.php';
 require_once __DIR__ . '/controllers/LoginController.php';
 require_once __DIR__ . '/controllers/RegisterController.php';
 require_once __DIR__ . '/controllers/LogoutController.php';
 require_once __DIR__ . '/controllers/UploadController.php';
+require_once __DIR__ . '/controllers/PasswordResetController.php';
+require_once __DIR__ . '/controllers/MailController.php';
+
 $autoloadPath = __DIR__ . '/vendor/autoload.php';
 
 if (!file_exists($autoloadPath)) {
