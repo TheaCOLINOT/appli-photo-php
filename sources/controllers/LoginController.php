@@ -1,10 +1,26 @@
 <?php
+// require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../requests/LoginRequest.php';
+require_once __DIR__ . '/../core/Database.php';
+
 
 class LoginController {
     public static function index() {
         require_once __DIR__ . '/../views/login/index.php';
+    }
+
+    public static function showPasswordResetForm() {
+        require_once __DIR__ . '/../views/login/password_reset_request.php';
+    }
+
+    public static function showResetPasswordForm() {
+        require_once __DIR__ . '/../views/login/reset_password.php';
+    }
+    
+    
+    public static function passwordReset() {
+        require_once __DIR__ . '/../views/login/passwordReset.php';
     }
 
     public static function post() {

@@ -6,16 +6,16 @@ Session::start();
 
 require_once __DIR__ . '/core/Database.php';
 require_once __DIR__ . '/core/Router.php';
+require_once __DIR__ . '/core/MailService.php';
 
 require_once __DIR__ . '/models/User.php';
+require_once __DIR__ . '/models/PasswordResetToken.php';
 
 require_once __DIR__ . '/controllers/HomeController.php';
 require_once __DIR__ . '/controllers/LoginController.php';
 require_once __DIR__ . '/controllers/RegisterController.php';
 require_once __DIR__ . '/controllers/LogoutController.php';
 require_once __DIR__ . '/controllers/UploadController.php';
-require_once __DIR__ . '/controllers/CatalogueGroupController.php';
-require_once __DIR__ . '/controllers/CataloguePhotoController.php';
 
 $router = new Router();
 
@@ -33,15 +33,15 @@ $router->get('/register', RegisterController::class, 'index');
 $router->post('/register', RegisterController::class, 'post');
 // Routes pour la réinitialisation du mot de passe
 
-
-$router->get('/catalog', 'CataloguePhoto', 'index');
-$router->get('/catalog/{slug}', 'CataloguePhoto', 'index');
-
-$router->get('/groups', 'CatalogueGroup', 'index');
-$router->post('/groups', 'CatalogueGroup', 'create');
-
-
 $router->get('/logout', LogoutController::class, 'index');
+
+// Routes pour la réinitialisation du mot de passe
+
+$router->get('/password-reset', LoginController::class, 'showPasswordResetForm');
+$router->post('/password-reset', MailController::class, 'sendResetLink');
+
+$router->get('/reset-password', LoginController::class, 'showResetPasswordForm');
+$router->post('/reset-password', PasswordResetController::class, 'resetPassword');
 
 $router->start();
 ob_end_flush();
