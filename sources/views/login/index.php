@@ -30,7 +30,7 @@
       <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">
         Se connecter
       </button>
-      <a href="/passwordReset" class="text-sm text-blue-500 hover:text-blue-700">
+      <a href="/password-reset" class="text-sm text-blue-500 hover:text-blue-700">
         Mot de passe oublié ?
       </a>
     </div>

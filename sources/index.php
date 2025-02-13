@@ -41,10 +41,16 @@ $router->get('/login', LoginController::class, 'index');
 $router->post('/login', LoginController::class, 'post');
 $router->get('/register', RegisterController::class, 'index');
 $router->post('/register', RegisterController::class, 'post');
-// Routes pour la réinitialisation du mot de passe
-$router->get('/passwordReset',LoginController::class, 'passwordReset');
-$router->post('/passwordReset',MailController::class, 'passwordResetEmail');
+
 $router->get('/logout', LogoutController::class, 'index');
+
+// Routes pour la réinitialisation du mot de passe
+
+$router->get('/password-reset', LoginController::class, 'showPasswordResetForm');
+$router->post('/password-reset', MailController::class, 'sendResetLink');
+
+$router->get('/reset-password', LoginController::class, 'showResetPasswordForm');
+$router->post('/reset-password', PasswordResetController::class, 'resetPassword');
 
 $router->start();
 ob_end_flush();
