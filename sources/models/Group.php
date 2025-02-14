@@ -48,7 +48,8 @@ class Group
         return null;
     }
 
-    public static function getByName(string $name): ?Group {
+    public static function getByName(string $name): ?Group 
+    {
         $db = Database::getInstance();
         $query = $db->prepare("SELECT * FROM groups WHERE name = :name");
         $query->execute(['name' => $name]);

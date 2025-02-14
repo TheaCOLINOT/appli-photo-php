@@ -59,11 +59,19 @@ class GroupController
             exit;
         }
         
-        $groupName = trim($_POST['name']);
+        $groupName = trim(htmlspecialchars($_POST['name'])); 
+        
         
         // Vérifier que le nom ne contient pas d'espaces
         if (preg_match('/\s/', $groupName)) {
             Session::setFlash('error', "Le nom du groupe ne doit pas contenir d'espaces (un seul mot).");
+            header("Location: /group/create");
+            exit;
+        }
+
+        // Vérifier que le nom de groupe n'existe pas
+        if (!empty(Group::getByName($groupName))) {
+            Session::setFlash('error', "Un groupe de ce nom existe déjà.");
             header("Location: /group/create");
             exit;
         }
