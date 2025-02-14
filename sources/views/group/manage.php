@@ -66,19 +66,8 @@
         <h3 class="text-2xl font-semibold mt-8 mb-4">Ajouter un membre</h3>
         <form action="/groups/add-member/<?= htmlspecialchars($group->name) ?>" method="post" class="bg-gray-50 p-4 border rounded">
             <div class="mb-4">
-                <label for="user_email" class="block text-gray-700 font-medium">Sélectionnez un utilisateur :</label>
-                <select name="user_email" id="user_email" class="w-full border rounded px-3 py-2" required>
-                    <option value="">-- Choisissez un utilisateur --</option>
-                    <?php if (!empty($availableUsers)): ?>
-                        <?php foreach ($availableUsers as $user): ?>
-                            <option value="<?= htmlspecialchars($user['email']) ?>">
-                                <?= htmlspecialchars($user['nom'] . ' ' . $user['prenom'] . ' (' . $user['email'] . ')') ?>
-                            </option>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <option value="">Aucun utilisateur disponible</option>
-                    <?php endif; ?>
-                </select>
+                <label for="user_email" class="block text-gray-700 font-medium">Ajouter un utilisateur :</label>
+                <input type="text" name="user_email" id="name" class="w-full border rounded px-3 py-2" placeholder="Email" required>
             </div>
             <div class="mb-4">
                 <label for="role" class="block text-gray-700 font-medium">Rôle :</label>
