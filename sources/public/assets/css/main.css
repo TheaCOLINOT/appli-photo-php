@@ -318,6 +318,12 @@ body {
   transform: translateY(0);
 }
 
+.input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .dark .button--primary {
   background-color: var(--dark-primary);
   color: var(--dark-text);

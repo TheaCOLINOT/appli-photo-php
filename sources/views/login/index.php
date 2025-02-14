@@ -7,20 +7,22 @@
       <?php echo Session::getError('auth'); ?>
     </div>
   <?php endif; ?>
-
+  <figure>
+    <img src="assets\scss/images/img1.jpg" alt="image présentation" class="img1">
+  </figure>
   <form method="POST" action="/login">
-    <div class="mb-4">
+    <div class="input">
       <label class="block text-gray-700">Email</label>
-      <input type="email" name="email" class="w-full border rounded px-3 py-2"
+      <input type="email" name="email" class="input"
         value="<?php echo htmlspecialchars(Session::getOldInput('email')); ?>">
       <?php if (Session::hasError('email')): ?>
         <p class="text-red-500 text-sm"><?php echo Session::getError('email'); ?></p>
       <?php endif; ?>
     </div>
 
-    <div class="mb-6">
+    <div class="input">
       <label class="block text-gray-700">Mot de passe</label>
-      <input type="password" name="password" class="w-full border rounded px-3 py-2">
+      <input type="password" name="password" class="input">
       <?php if (Session::hasError('password')): ?>
         <p class="text-red-500 text-sm"><?php echo Session::getError('password'); ?></p>
       <?php endif; ?>
