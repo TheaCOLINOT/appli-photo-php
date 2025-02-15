@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr" class="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Site</title>
-    <link rel="stylesheet" href="/public/assets/css/main.css">
-    
+    <link rel="stylesheet" href="dist/framework-esgi.css">
+
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
             <div class="nav__container">
-     
+
                 <ul class="nav__menu">
                     <li class="nav__item">
                         <a href="/" class="nav__link">Accueil</a>
@@ -40,7 +42,7 @@
                             <a href="/logout" class="nav__link">Déconnexion</a>
                         </li>
                     <?php endif; ?>
-                    
+
                 </ul>
             </div>
         </nav>
@@ -62,4 +64,5 @@
     </footer>
 
 </body>
+
 </html>
