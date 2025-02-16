@@ -2,8 +2,8 @@
 @use "../partials/functions" as f;
 @layer components {
 	.navbar {
-		background-color: var(--neutral-50);
-		color: var(--neutral-700);
+		//background-color: var(--neutral-50);
+		//color: var(--neutral-700);
 		padding: f.rem(16) 0;
 		.container {
 			@include m.flexbox($direction: column, $align: flex-start);
