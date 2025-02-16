@@ -8,9 +8,7 @@
     </div>
   <?php endif; ?>
   <div class="form form--div">
-    <!-- <figure> -->
-      <img src="/public/img1.jpg" alt="image présentation" class="image image--md image--square">
-    <!-- </figure> -->
+    <img src="/public/img1.jpg" alt="image présentation" class="image image--md image--square">
     <form class="form--md" method="POST" action="/login">
 
       <div class="input--div">
