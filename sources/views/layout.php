@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr" class="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?? ''; ?></title>
     <link rel="stylesheet" href="/dist/framework-esgi.css">
     <script src="/dist/framework-esgi.js"></script>
-    <script src="/src/js/theme.js" defer></script>
 </head>
+
 <body>
     <!-- Wrapper global pour toute la page -->
     <div class="page-wrapper">
@@ -26,4 +27,5 @@
         <?php include_once __DIR__ . '/layout/footer.php'; ?>
     </div>
 </body>
+
 </html>
