@@ -14,15 +14,27 @@
 		}
 		a {
 			@include m.resetA;
+			.nav_link {
+			color: var(primary-700);
+			}
 		}
+
 		ul {
+			
 			@include m.resetList;
 			@include m.flexbox($direction: column, $gap: f.rem(8));
-			height: 0;
+			justify-content: center;
+			align-items: center;
 			overflow: hidden;
+			height: 0;
+			align-items: center;
 			transition: all 0.3s;
+			justify-content: flex-end;
 			&.active {
 				margin-top: 1rem;
+				height: 80%;
+				align-items: flex-start;
+
 			}
 			@media (width >= f.screen(md)) {
 				@include m.flexbox($direction: row, $gap: f.rem(18));
@@ -30,6 +42,9 @@
 				height: auto !important; // pour ne pas être supplanté par le style ajouté par js
 				&.active {
 					margin-top: 0;
+					height: 100%;
+					align-items: flex-start;
+
 				}
 			}
 		}
@@ -47,6 +62,7 @@
 			@media (width >= f.screen(md)) {
 				display: none;
 			}
+			    align-self: anchor-center;
 		}
 	}
 }

@@ -84,5 +84,6 @@
 </div>
 <?php 
 $content = ob_get_clean();
+$title = 'Gérer le groupe : ' . htmlspecialchars($group->name);
 require __DIR__ . '/../layout.php';
 ?>

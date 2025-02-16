@@ -81,5 +81,6 @@
 
 <?php
 $content = ob_get_clean();
+$title = 'Photos du groupe : ' . htmlspecialchars($group->name);
 require __DIR__ . '/../layout.php';
 ?>
