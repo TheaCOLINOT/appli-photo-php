@@ -34,7 +34,7 @@
                 <span class="nav__user">Bienvenue, <?php echo htmlspecialchars(Session::get('user')['prenom']); ?></span>
             </li>
             <li class="nav__item">
-                <a href="/logout" class="nav__link">Déconnexion</a>
+                <a href="/logout" class="nav__link button button--secondary">Déconnexion</a>
             </li>
             </ul>
         <?php endif; ?>
