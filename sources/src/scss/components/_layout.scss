@@ -1,0 +1,14 @@
+@layer layout {
+    // Wrapper global pour toute la page
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; // occupe toute la hauteur du viewport
+    }
+  
+    // La zone principale se développe pour remplir l'espace restant
+    .page-content {
+      flex: 1;
+    }
+  }
+  
