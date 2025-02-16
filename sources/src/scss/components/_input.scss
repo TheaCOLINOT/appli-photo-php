@@ -1,0 +1,36 @@
+@use "../partials/functions" as f;
+@use "../partials/mixins" as m;
+@layer components {
+	.input {
+		display: inline;
+		font-size: f.rem(16);
+		line-height: f.rem(18);
+		font-weight: 600;
+		border-radius: f.rem(3);
+		transition: all 0.3s;
+		margin: 5px;
+		margin-left: 0;
+		margin-bottom: 20px;
+		width: 100%;
+
+		&--label {
+			width: f.rem(130);
+			font-weight: bolder;
+		}
+
+		&--div {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+		}
+
+		// classes modificatrices de taille
+		&--lg {
+			height: f.rem(40);	
+		}
+		&--sm {
+			height: f.rem(20);
+		}
+	}
+}
