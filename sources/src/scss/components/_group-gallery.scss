@@ -3,6 +3,7 @@
 
 @layer components {
   .group-gallery {
+    padding-bottom: 2rem;
     display: grid;
     gap: f.rem(16);
     grid-template-columns: repeat(1, 1fr); // Par défaut sur mobile : 1 colonne
