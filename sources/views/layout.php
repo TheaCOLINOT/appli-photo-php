@@ -7,7 +7,7 @@
     <title> <?php echo $title ?? ''; ?>
     </title>
     <link rel="stylesheet" href="/dist/framework-esgi.css">
-    <script src="./dist/framework-esgi.js"></script>
+    <script src="/dist/framework-esgi.js"></script>
 </head>
 
 <body>
@@ -20,6 +20,7 @@
         <?php endif; ?>
         <?php echo $content ?? ''; ?>
     </main>
+    
     <?php include_once __DIR__ . '/layout/footer.php' ?>
 
 </body>
