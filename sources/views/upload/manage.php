@@ -18,21 +18,26 @@
 
     <!-- Affichage de la galerie de photos -->
     <?php if (!empty($photos)): ?>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="group-gallery">
             <?php foreach ($photos as $photo): ?>
-                <div class="relative border rounded overflow-hidden">
+                <div class="group-gallery__item">
                     <img src="/<?= htmlspecialchars($photo['path']) ?>"
                         alt="Photo <?= htmlspecialchars($photo['id']) ?>"
-                        class="object-cover w-full h-48 cursor-pointer"
                         onclick="openModal('<?= htmlspecialchars($photo['path']) ?>')">
-                    <!-- Bouton de suppression visible si l'utilisateur est propriétaire de la photo -->
-                    <?php if (Session::get('user')['id'] == $photo['user_id']): ?>
-                        <form action="/photo/<?= htmlspecialchars($photo['id']) ?>/delete" method="post" class="absolute top-2 right-2" onsubmit="return confirm('Confirmer la suppression de cette photo ?');">
-                            <button type="submit" class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600">
-                                Supprimer
-                            </button>
-                        </form>
+
+                    <?php if (Session::get('user')['id'] == $photo['user_id'] || Session::get('user')['id'] == $group->owner_id): ?>
+                        <div class="btn-group">
+                            <!-- Bouton de suppression -->
+                            <form action="/photo/<?= htmlspecialchars($photo['id']) ?>/delete" method="post"
+                                onsubmit="return confirm('Confirmer la suppression de cette photo ?');">
+                                <button type="submit" class="delete-btn">
+                                    Supprimer
+                                </button>
+                            </form>
+                        </div>
                     <?php endif; ?>
+
+
                 </div>
             <?php endforeach; ?>
         </div>
@@ -40,8 +45,6 @@
         <p class="text-gray-700">Aucune photo uploadée pour le moment.</p>
     <?php endif; ?>
 </div>
-
-
 <?php
 $content = ob_get_clean();
 require __DIR__ . '/../layout.php';
