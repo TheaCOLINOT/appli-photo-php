@@ -2,17 +2,11 @@
 <div class="container mx-auto px-4 py-6">
     <h1 class="text-3xl font-bold mb-6">Photos du groupe : <?= htmlspecialchars($group->name) ?></h1>
 
-    <!-- Menu interne -->
-    <nav class="mb-6">
-        <?php if (Session::get('user')['id'] == $group->owner_id): ?>
-            <a href="/group/<?= htmlspecialchars($group->name) ?>/manage" class="mr-4 text-blue-500 hover:underline">Membres</a>
-            <a href="/group/<?= htmlspecialchars($group->name) ?>/photos" class="mr-4 text-blue-500 hover:underline">Photos</a>
-            <a href="/group" class="mr-4 text-blue-500 hover:underline">Groupe</a>
-        <?php else: ?>
-            <a href="/group/<?= htmlspecialchars($group->name) ?>/photos" class="mr-4 text-blue-500 hover:underline">Photos</a>
-            <a href="/group" class="mr-4 text-blue-500 hover:underline">Groupe</a>
-        <?php endif; ?>
-    </nav>
+<!-- Menu interne -->
+
+<?php include_once __DIR__ . '/../layout/nav_group.php' ?>
+
+
 
     <!-- Messages flash -->
     <?php if ($flash = Session::getFlash()): ?>

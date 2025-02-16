@@ -3,11 +3,8 @@
     <h1 class="text-3xl font-bold mb-6">Gérer le groupe : <?= htmlspecialchars($group->name) ?></h1>
     
     <!-- Menu interne -->
-    <nav class="mb-6">
-        <a href="/group/<?= htmlspecialchars($group->name) ?>/manage" class="mr-4 text-blue-500 hover:underline">Membres</a>
-        <a href="/group/<?= htmlspecialchars($group->name) ?>/photos" class="mr-4 text-blue-500 hover:underline">Photos</a>
-        <a href="/group" class="mr-4 text-blue-500 hover:underline">Groupe</a>
-    </nav>
+    <?php include_once __DIR__ . '/../layout/nav_group.php' ?>
+
     
     <!-- Messages flash -->
     <?php if ($flash = Session::getFlash()): ?>
