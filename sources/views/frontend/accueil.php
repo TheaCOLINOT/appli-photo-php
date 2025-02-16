@@ -9,7 +9,9 @@
             <div class="banner__content">
                 <h1>Bienvenue sur <span>Phphoto</span></h1>
                 <p>Votre premier Application de photo Grouper partager entre amis et famille</p>	
-                <button class="button button--primary button--lg">Voir la Galerie</button>
+                <a href="/login" class="mr-4 button button--primary">
+            Connectez-vous !
+        </a>
             </div>
         </div>
     </section>
