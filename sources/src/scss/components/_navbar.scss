@@ -61,8 +61,8 @@
 			right: 0;
 			@media (width >= f.screen(md)) {
 				display: none;
+				align-self: center;
 			}
-			    align-self: anchor-center;
 		}
 	}
 }
