@@ -296,16 +296,24 @@ class GroupController
         }
         
         $role = isset($_POST['role']) ? $_POST['role'] : 'read';
-        // On passe l'ID du groupe récupéré à la méthode addUser()
-        if (Group::addUser($group->id, $user->id, $role)) {
-            Session::setFlash('success', "Utilisateur ajouté avec succès.");
-        } else {
-            Session::setFlash('error', "Erreur lors de l'ajout de l'utilisateur.");
+        
+        try {
+            // On passe l'ID du groupe récupéré à la méthode addUser()
+            if (Group::addUser($group->id, $user->id, $role)) {
+                Session::setFlash('success', "Utilisateur ajouté avec succès.");
+            } else {
+                Session::setFlash('error', "Erreur lors de l'ajout de l'utilisateur.");
+            }
+        } catch (Exception $e) {
+            // Si l'utilisateur est déjà membre, ou en cas d'autre exception,
+            // on capture l'exception et on affiche le message d'erreur.
+            Session::setFlash('error', $e->getMessage());
         }
         
         header("Location: /group/" . htmlspecialchars($groupName) . "/manage");
         exit;
     }
+    
     
 
     /**
