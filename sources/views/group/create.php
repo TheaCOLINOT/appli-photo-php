@@ -6,10 +6,11 @@
             <label for="name" class="block text-gray-700 font-medium">Nom du groupe :</label>
             <input type="text" name="name" id="name" class="w-full border rounded px-3 py-2" placeholder="Nom du groupe" required>
         </div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Créer le groupe</button>
+        <button type="submit" class="button button--primary">Créer le groupe</button>
     </form>
 </div>
 <?php 
 $content = ob_get_clean();
+$title = 'Créer un groupe';
 require __DIR__ . '/../layout.php';
 ?>

@@ -6,12 +6,12 @@
 		@include m.resetButton;
 		padding: f.rem(10) f.rem(16);
 		display: inline-block;
-		background-color: var(--black);
-		color: var(--white);
+		background-color: var(--white);
+		color: var(--black);
 		font-size: f.rem(16);
 		line-height: f.rem(18);
 		font-weight: 600;
-		border-radius: f.rem(6);
+		// border-radius: f.rem(6);
 		transition: all 0.3s;
 
 		&:hover {
@@ -19,15 +19,15 @@
 		}
 		// classes modificatrices de couleur
 		&--primary {
-			background-color: var(--blue-500);
+			background-color: var(--primary-800);
 			&:hover {
-				background-color: var(--blue-400);
+				background-color: var(--primary-600);
 			}
 		}
 		&--secondary {
-			background-color: var(--grey-500);
+			background-color: var(--secondary-800);
 			&:hover {
-				background-color: var(--grey-400);
+				background-color: var(--secondary-600);
 			}
 		}
 		&--danger {
@@ -44,6 +44,20 @@
 			padding: f.rem(8) f.rem(12);
 			font-size: f.rem(14);
 			line-height: f.rem(16);
+		}
+	}
+	.Button_2 {
+
+		padding: f.rem(10) f.rem(16);
+		display: inline-block;
+		color: var(--black);
+		font-size: f.rem(16);
+		line-height: f.rem(18);
+		font-weight: 600;
+		transition: all 0.3s;
+		text-decoration
+		&:hover {
+			color: var(--primary-800);
 		}
 	}
 }
