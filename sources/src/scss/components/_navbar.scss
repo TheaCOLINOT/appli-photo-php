@@ -64,5 +64,9 @@
 				align-self: center;
 			}
 		}
+		
 	}
+	.navbar ul.active {
+		/* La hauteur sera gérée en inline via JavaScript */
+	  }
 }
