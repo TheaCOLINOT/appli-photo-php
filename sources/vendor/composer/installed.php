@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'joelaka/appli-photo-php',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'be00c85c97725d930d43522cf8a89a37ddf11f76',
+        'name' => '__root__',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'joelaka/appli-photo-php' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'be00c85c97725d930d43522cf8a89a37ddf11f76',
+        '__root__' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

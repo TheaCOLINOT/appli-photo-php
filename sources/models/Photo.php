@@ -68,7 +68,7 @@ class Photo {
         }
         
         // Vérifier les droits (ici, on suppose que seul l'auteur ou le propriétaire du groupe peut partager)
- 
+        // Vous pouvez ajouter ici une logique pour vérifier le rôle dans le groupe si besoin.
         if ($photo['user_id'] != $currentUserId) {
             return null;
         }

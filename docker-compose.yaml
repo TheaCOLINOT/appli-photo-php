@@ -15,8 +15,10 @@ services:
     volumes:
       - ./docker/nginx/templates:/etc/nginx/templates
       - ./sources:$PHP_USER_HOME_DIRECTORY
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     ports:
       - $SERVER_PORT:80
+      - "443:443"
 
   php:
     container_name: php
@@ -38,6 +40,7 @@ services:
     user: php
     volumes:
       - ./sources:$PHP_USER_HOME_DIRECTORY
+
   migration:
     container_name: migration
     restart: unless-stopped
@@ -58,8 +61,7 @@ services:
     user: php
     volumes:
       - ./db:$PHP_USER_HOME_DIRECTORY
-    command: sh -c "php /home/php/migrations/0001_initial.php && php /home/php/migrations/0002_add_photos_table.php && php /home/php/migrations/0003_add_password_reset_table.php"
-
+    command: sh -c "php /home/php/migrations/0001_initial.php && php /home/php/migrations/0002_add_photos_table.php && php /home/php/migrations/0003_password_reset_table.php"
   mariadb:
     container_name: mariadb
     restart: unless-stopped

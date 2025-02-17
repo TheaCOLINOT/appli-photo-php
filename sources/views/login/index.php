@@ -7,44 +7,38 @@
       <?php echo Session::getError('auth'); ?>
     </div>
   <?php endif; ?>
-  <div class="form form--div">
-    <img src="/public/img1.jpg" alt="image présentation" class="image image--md image--square">
-    <form class="form--md" method="POST" action="/login">
 
-      <div class="input--div">
-        <label class="input--label">Email</label>
-        <input type="email" name="email" class="input input--lg"
-          value="<?php echo htmlspecialchars(Session::getOldInput('email')); ?>">
-        <?php if (Session::hasError('email')): ?>
-          <p class="text-red-500 text-sm"><?php echo Session::getError('email'); ?></p>
-        <?php endif; ?>
-      </div>
+  <form method="POST" action="/login">
+    <div class="mb-4">
+      <label class="block text-gray-700">Email</label>
+      <input type="email" name="email" class="w-full border rounded px-3 py-2"
+        value="<?php echo htmlspecialchars(Session::getOldInput('email')); ?>">
+      <?php if (Session::hasError('email')): ?>
+        <p class="text-red-500 text-sm"><?php echo Session::getError('email'); ?></p>
+      <?php endif; ?>
+    </div>
 
-      <div class="input--div">
-        <label class="input--label">Mot de passe</label>
-        <input type="password" name="password" class="input input--lg">
-        <?php if (Session::hasError('password')): ?>
-          <p class="text-red-500 text-sm"><?php echo Session::getError('password'); ?></p>
-        <?php endif; ?>
-      </div>
+    <div class="mb-6">
+      <label class="block text-gray-700">Mot de passe</label>
+      <input type="password" name="password" class="w-full border rounded px-3 py-2">
+      <?php if (Session::hasError('password')): ?>
+        <p class="text-red-500 text-sm"><?php echo Session::getError('password'); ?></p>
+      <?php endif; ?>
+    </div>
 
-      <div class="flex items-center justify-between mb-6">
-        <button type="submit" class="button button--primary">
-          Se connecter
-        </button>
-        <a href="/password-reset" class="button button--secondary">
-          Mot de passe oublié ?
-        </a>
-      </div>
-      <p class="text-center text-gray-600 text-sm">
-        Pas encore de compte ? <a href="/register" class="text-blue-500 hover:text-blue-700">S'inscrire</a>
-      </p>
-    </form>
-    
-  </div>
+    <div class="flex items-center justify-between mb-6">
+      <button type="submit" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">
+        Se connecter
+      </button>
+      <a href="/password-reset" class="text-sm text-blue-500 hover:text-blue-700">
+        Mot de passe oublié ?
+      </a>
+    </div>
+  </form>
 
-
-  
+  <p class="text-center text-gray-600 text-sm">
+    Pas encore de compte ? <a href="/register" class="text-blue-500 hover:text-blue-700">S'inscrire</a>
+  </p>
 </div>
 <?php
 $content = ob_get_clean();

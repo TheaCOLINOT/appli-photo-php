@@ -3,6 +3,8 @@ class PhotoController
 {
     /**
      * Affiche une photo partagée publiquement via un token unique.
+     *
+     * @param string $token Le token unique de partage.
      */
     public static function publicView(string $token): void
     {
@@ -15,7 +17,7 @@ class PhotoController
             echo "Photo non trouvée ou non accessible publiquement.";
             exit;
         }
-     
+        // Vous pouvez créer une vue dédiée pour afficher la photo partagée
         require_once __DIR__ . '/../views/photo/public.php';
     }
 
@@ -46,10 +48,10 @@ class PhotoController
             exit;
         }
         $currentUserId = Session::get('user')['id'];
-        
+        // Vérifiez les droits, par exemple si l'utilisateur est l'auteur de la photo
         $token = Photo::sharePublic($photoId, $currentUserId);
         if ($token) {
-            
+            // Par exemple, affichez le lien de partage ou définissez un flash
             Session::setFlash('success', "Lien de partage généré : " . "https://gdproad.site/photo/public/" . $token);
         } else {
             Session::setFlash('error', "Erreur lors du partage de la photo.");

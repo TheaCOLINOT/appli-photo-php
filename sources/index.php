@@ -41,8 +41,6 @@ $router = new Router();
 /* Routes pour l'authentification et la page d'accueil */
 /* ---------------------- */
 $router->get("/", HomeController::class, "index");
-$router->get("/galerie", HomeController::class, "galerie");
-
 $router->get("/login", LoginController::class, "index");
 $router->post("/login", LoginController::class, "post");
 $router->get("/register", RegisterController::class, "index");

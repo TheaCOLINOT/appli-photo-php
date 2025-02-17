@@ -1,21 +1,31 @@
 server {
-  listen 80 default_server;
+    listen 443 ssl;
+    server_name gdproad.site www.gdproad.site;
 
-  server_name _;
+    ssl_certificate ${SSL_CERT_PATH};
+    ssl_certificate_key ${SSL_CERT_KEY_PATH};
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
 
-  root ${PHP_USER_HOME_DIRECTORY};
+    client_max_body_size 50M;
+    root ${PHP_USER_HOME_DIRECTORY};
+    index index.php;
 
-  index index.php;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-  location ~ \.php$ {
-    fastcgi_pass php:9000;
-    include fastcgi_params;
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    fastcgi_param PATH_INFO $fastcgi_path_info;
-  }
+    location ~ \.php$ {
+        fastcgi_pass php:9000;
+        include fastcgi_params;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
 
-  location / {
-    try_files $uri $uri/ /index.php;
-  }
+# Redirection de HTTP vers HTTPS
+server {
+    listen 80;
+    server_name gdproad.site www.gdproad.site;
+    return 301 https://$host$request_uri;
 }

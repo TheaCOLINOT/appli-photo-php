@@ -59,19 +59,11 @@ class GroupController
             exit;
         }
         
-        $groupName = trim(htmlspecialchars($_POST['name'])); 
-        
+        $groupName = trim($_POST['name']);
         
         // Vérifier que le nom ne contient pas d'espaces
         if (preg_match('/\s/', $groupName)) {
             Session::setFlash('error', "Le nom du groupe ne doit pas contenir d'espaces (un seul mot).");
-            header("Location: /group/create");
-            exit;
-        }
-
-        // Vérifier que le nom de groupe n'existe pas
-        if (!empty(Group::getByName($groupName))) {
-            Session::setFlash('error', "Un groupe de ce nom existe déjà.");
             header("Location: /group/create");
             exit;
         }
@@ -296,24 +288,16 @@ class GroupController
         }
         
         $role = isset($_POST['role']) ? $_POST['role'] : 'read';
-        
-        try {
-            // On passe l'ID du groupe récupéré à la méthode addUser()
-            if (Group::addUser($group->id, $user->id, $role)) {
-                Session::setFlash('success', "Utilisateur ajouté avec succès.");
-            } else {
-                Session::setFlash('error', "Erreur lors de l'ajout de l'utilisateur.");
-            }
-        } catch (Exception $e) {
-            // Si l'utilisateur est déjà membre, ou en cas d'autre exception,
-            // on capture l'exception et on affiche le message d'erreur.
-            Session::setFlash('error', $e->getMessage());
+        // On passe l'ID du groupe récupéré à la méthode addUser()
+        if (Group::addUser($group->id, $user->id, $role)) {
+            Session::setFlash('success', "Utilisateur ajouté avec succès.");
+        } else {
+            Session::setFlash('error', "Erreur lors de l'ajout de l'utilisateur.");
         }
         
         header("Location: /group/" . htmlspecialchars($groupName) . "/manage");
         exit;
     }
-    
     
 
     /**

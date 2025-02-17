@@ -29,7 +29,7 @@ class Group
             'owner_id' => $data['owner_id']
         ])) {
             $groupId = $db->lastInsertId();
-            
+            // Optionnel : ajouter le propriétaire dans la table d'association (group_users)
             self::addUser($groupId, $data['owner_id'], 'write');
             return self::getById($groupId);
         }
@@ -48,8 +48,7 @@ class Group
         return null;
     }
 
-    public static function getByName(string $name): ?Group 
-    {
+    public static function getByName(string $name): ?Group {
         $db = Database::getInstance();
         $query = $db->prepare("SELECT * FROM groups WHERE name = :name");
         $query->execute(['name' => $name]);
@@ -71,29 +70,9 @@ class Group
     public static function addUser(int $groupId, int $userId, string $role = 'read'): bool
     {
         $db = Database::getInstance();
-    
-        // Vérifier si l'utilisateur est déjà membre du groupe
-        $stmt = $db->prepare("SELECT COUNT(*) FROM group_users WHERE group_id = :group_id AND user_id = :user_id");
-        $stmt->execute([
-            'group_id' => $groupId,
-            'user_id'  => $userId,
-        ]);
-    
-        if ($stmt->fetchColumn() > 0) {
-            // L'utilisateur est déjà dans le groupe : on peut retourner false ou lancer une exception
-            // return false;
-            throw new Exception("L'utilisateur est déjà membre de ce groupe.");
-        }
-    
-        // Insertion du nouvel enregistrement si la combinaison n'existe pas
         $stmt = $db->prepare("INSERT INTO group_users (group_id, user_id, role) VALUES (:group_id, :user_id, :role)");
-        return $stmt->execute([
-            'group_id' => $groupId,
-            'user_id'  => $userId,
-            'role'     => $role,
-        ]);
+        return $stmt->execute(['group_id' => $groupId, 'user_id' => $userId, 'role' => $role]);
     }
-    
 
     public static function removeUser(int $groupId, int $userId): bool
     {
