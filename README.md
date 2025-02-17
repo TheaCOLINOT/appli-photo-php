@@ -1,10 +1,10 @@
-Installation du Projet
-Prérequis
+#Installation du Projet
+#Prérequis
 Docker & Docker Compose
 Git
 Node.js et npm
 Make
-Étapes d'Installation
+#Étapes d'Installation
 1. Cloner le Projet
 bash
 git clone https://github.com/TheaCOLINOT/appli-photo-php.git
@@ -21,19 +21,19 @@ make start
 bash
 npm install --save-dev vite
 npm run build
-Accès à l'Application
+#Accès à l'Application
 Une fois l'installation terminée, vous pouvez accéder à :
 
 Application : http://localhost:8000
 phpMyAdmin : http://localhost:8080
 Développement
-Modification du CSS
+#Modification du CSS
 Le projet utilise SASS pour la gestion des styles. Pour compiler les modifications CSS :
 
 bash
 npm run build
 Dépannage
-Problèmes Courants
+#Problèmes Courants
 Si les conteneurs Docker ne démarrent pas :
 
 Vérifier que les ports 8000 et 8080 sont disponibles
