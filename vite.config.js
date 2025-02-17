@@ -8,7 +8,6 @@ export default defineConfig({
 		lib: {
 			entry: path.resolve(__dirname, "./sources/src/js/main.js"),
 			name: "framework ESGI",
-			//formats: ["es"],
 		},
 	},
 });
