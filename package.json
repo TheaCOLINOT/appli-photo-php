@@ -7,15 +7,28 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"watch": "vite build --watch"
+		"watch": "vite build --watch",
+		"docs:dev": "vitepress dev docs",
+		"docs:build": "vitepress build docs",
+		"docs:deploy": "npx gh-pages -d docs/.vitepress/dist"
 	},
 	"devDependencies": {
+		"gh-pages": "^6.3.0",
 		"sass": "^1.83.4",
 		"vite": "^6.1.0",
 		"vite-plugin-full-reload": "^1.2.0",
-		"vite-plugin-restart": "^0.4.2"
+		"vite-plugin-restart": "^0.4.2",
+		"vitepress": "^1.6.3"
 	},
 	"dependencies": {
 		"vite-plugin-live-reload": "^3.0.4"
-	}
+	},
+	"description": "npm install vite --save-dev\r npm run watch",
+	"main": "vite.config.js",
+	"directories": {
+		"doc": "docs"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }
