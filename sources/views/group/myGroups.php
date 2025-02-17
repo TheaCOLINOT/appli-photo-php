@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<div class="container mx-auto px-4 py-6">
+<div class="container">
     <h1 class="text-3xl font-bold mb-6">Mes Groupes</h1>
 
     <?php
