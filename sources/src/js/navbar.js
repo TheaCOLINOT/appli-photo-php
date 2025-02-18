@@ -1,20 +1,32 @@
-// attendre que le document soit chargé
-document.addEventListener("DOMContentLoaded", (event) => {
-	document.querySelectorAll(".navbar__button").forEach(function (elem) {
-		elem.addEventListener("click", (evt) => {
-			// sélectionner le parent de l'élément
-			// dans ce parent, on sélectionne la balise <ul>
-			const ul = elem.parentElement.querySelector("ul");
-			// si elle n'a pas la classe .active : lui donner la classe et changer sa height pou scrollHeight
-			if (!ul.classList.contains("active")) {
-				ul.classList.add("active");
-				ul.style.height = ul.scrollHeight + "px";
+document.addEventListener("DOMContentLoaded", () => {
+	document.querySelectorAll(".navbar__button").forEach(function(button) {
+	  button.addEventListener("click", () => {
+		const menu = button.parentElement.querySelector("ul");
+  
+		if (menu.classList.contains("active")) {
+		  // Fermeture du menu
+		  // Fixer la hauteur actuelle pour initier la transition
+		  menu.style.height = menu.scrollHeight + "px";
+		  // Forcer le reflow pour que le navigateur prenne en compte la hauteur
+		  menu.offsetHeight; 
+		  // Puis, réduire la hauteur à 0
+		  menu.style.height = "0";
+		  menu.classList.remove("active");
+		} else {
+		  // Ouverture du menu
+		  menu.classList.add("active");
+		  // Définir la hauteur sur scrollHeight pour l'ouverture
+		  menu.style.height = menu.scrollHeight + "px";
+		  // Une fois la transition terminée, on réinitialise la hauteur à "auto"
+		  menu.addEventListener("transitionend", function removeHeight() {
+			// Vérifier que le menu est toujours ouvert (pour éviter des comportements indésirables)
+			if (menu.classList.contains("active")) {
+			  menu.style.height = "auto";
 			}
-			// sinon : lui enlever la classe et lui donner une height de 0
-			else {
-				ul.classList.remove("active");
-				ul.style.height = 0;
-			}
-		});
+			menu.removeEventListener("transitionend", removeHeight);
+		  });
+		}
+	  });
 	});
-});
+  });
+  

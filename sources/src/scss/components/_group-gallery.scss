@@ -1,0 +1,85 @@
+@use "../partials/functions" as f;
+@use "../partials/mixins" as m;
+
+@layer components {
+  .group-gallery {
+    padding-bottom: 2rem;
+    display: grid;
+    gap: f.rem(16);
+    grid-template-columns: repeat(1, 1fr); // Par défaut sur mobile : 1 colonne
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr); // Dès 768px : 4 colonnes
+    }
+
+    &__item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--gray-300);
+      border-radius: f.rem(4);
+
+      img {
+        display: block;
+        width: 100%;
+        height: f.rem(192); // Hauteur fixe, à adapter si besoin
+        object-fit: cover;
+        transition: transform 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      // Affichage en overlay du nom du publieur
+      .publisher {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: var(--white);
+        font-size: f.rem(12);
+        text-align: center;
+        padding: f.rem(4);
+      }
+
+      // Groupe de boutons (suppression et partage)
+      .btn-group {
+        position: absolute;
+        top: f.rem(8);
+        right: f.rem(8);
+        display: flex;
+        flex-direction: column;
+        gap: f.rem(4);
+
+        // Style commun aux boutons
+        button {
+          font-size: f.rem(12);
+          padding: f.rem(4) f.rem(8);
+          border: none;
+          border-radius: f.rem(3);
+          cursor: pointer;
+          transition: background-color 0.3s;
+          color: var(--white);
+        }
+
+        // Bouton de suppression
+        .delete-btn {
+          background-color: var(--red-500);
+          &:hover {
+            background-color: var(--red-400);
+          }
+        }
+
+        // Bouton de partage
+        .share-btn {
+          background-color: var(--purple-500);
+          &:hover {
+            background-color: var(--purple-600);
+          }
+        }
+      }
+    }
+  }
+}

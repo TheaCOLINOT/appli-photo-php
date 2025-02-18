@@ -48,5 +48,27 @@
 				}
 			}
 		}
+
+		@media (max-width: 768px) {
+			&--square {
+				&.image--lg {
+					@each $prop, $value in f.image-size(100vw, 100vw) {
+						#{$prop}: $value;
+					}
+				}
+
+				&.image--md {
+					@each $prop, $value in f.image-size(70vw, 70vw) {
+						#{$prop}: $value;
+					}
+				}
+
+				&.image--sm {
+					@each $prop, $value in f.image-size(20vw, 20vw) {
+						#{$prop}: $value;
+					}
+				}
+			}
+		}
 	}
 }

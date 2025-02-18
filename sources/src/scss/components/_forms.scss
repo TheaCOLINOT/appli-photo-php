@@ -3,8 +3,16 @@
 
 @layer components {
   .form {
+    padding-bottom: 2rem;
     width: 100%;
     
+    & > div {
+      margin-bottom: f.rem(16);
+    }
+    & > div {
+      margin-bottom: f.rem(16);
+    }
+
     &--div {
       display: flex;
       justify-content: space-around;
@@ -12,11 +20,32 @@
     }
 
     &--md {
-        width: 45%;
+      width: 45%;
     }
 
     &--input {
-        
+    }
+
+    @media (max-width: 768px) {
+      &--div {
+        display: block;
+      }
+
+      &--md {
+        width: 100%;
+        margin-top: 2vh;
+      }
+
+      &--label {
+        width: f.rem(130);
+        margin-bottom: 0;
+        margin-right: f.rem(10);
+        display: inline-block; // Alignement en ligne pour desktop
+      }
+
+      .input {
+        max-width: f.rem(300); // Évite un input trop large
+      }
     }
   }
 }

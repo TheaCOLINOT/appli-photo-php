@@ -2,47 +2,95 @@
 @use "variables" as v;
 @use "sass:color";
 @use "functions" as f;
+
 @layer base {
-	:root {
-		@each $name, $value in v.$colors {
-			// --#{$name}: #{$value};
-			// @if ($name != "text-color" and $name != "shadow-color") {
-			// 	--#{$name}-hover: #{color.scale($value, $lightness: 10%)};
-			// 	--#{$name}-transparent: #{color.scale($value, $alpha: -40%)};
-			// }
-			@each $name, $color in v.$colors {
-				@if ($name == "black" or $name == "white") {
-					--#{$name}: #{color.scale($color, $space: hsl)};
-				} @else {
-					$baseLightness: color.channel($color, "lightness", $space: hsl);
-					$baseHue: color.channel($color, "hue", $space: hsl);
-					$baseSaturation: color.channel($color, "saturation", $space: hsl);
-					@each $shade, $percent in v.$shades {
-						$val: hsl($baseHue $baseSaturation $percent);
-						@if (
-							$percent <= $baseLightness and ($percent + 8%) >= $baseLightness
-						) {
-							$val: hsl(
-								$baseHue $baseSaturation $baseLightness
-							); // conserver la couleur d'entrée
-						}
-						--#{$name}-#{$shade}: #{color.scale($val, $space: hsl)};
-					}
-				}
-			}
-		}
-	}
+  :root {
+    // 🎨 Mode Clair
+    @each $name, $value in v.$colors {
+      --#{$name}: #{$value};
+    }
 
-	body {
-		font-family: fonts.$font1;
-		background-color: var(--white);
-		color: var(--black);
-	}
+    // 🎨 Mode Sombre (Défini uniquement si le système est en dark mode)
+    @media (prefers-color-scheme: dark) {
+      @each $name, $value in v.$colors-dark {
+        --#{$name}: #{$value};
+      }
+    }
 
-	input {
-		border-radius: f.rem(6);
-		padding: f.rem(10) f.rem(16);
-		border: solid thin currentColor;
-		//background-color: var(--input-bg-color);
-	}
+    // 🎨 Génération automatique des nuances pour light
+    @each $name, $color in v.$colors {
+      @if ($name != "text-color" and $name != "shadow-color") {
+        $baseLightness: color.channel($color, "lightness", $space: hsl);
+        $baseHue: color.channel($color, "hue", $space: hsl);
+        $baseSaturation: color.channel($color, "saturation", $space: hsl);
+
+        @each $shade, $percent in v.$shades {
+          $val: hsl($baseHue $baseSaturation $percent);
+          @if ($percent <= $baseLightness and ($percent + 8%) >= $baseLightness) {
+            $val: hsl($baseHue $baseSaturation $baseLightness);
+          }
+          // Envelopper la déclaration pour respecter la nouvelle syntaxe
+          & {
+            --#{$name}-#{$shade}: #{color.scale($val, $space: hsl)};
+          }
+        }
+      }
+    }
+
+    // 🎨 Génération automatique des nuances pour dark
+    @media (prefers-color-scheme: dark) {
+      @each $name, $color in v.$colors-dark {
+        @if ($name != "text-color" and $name != "shadow-color") {
+          $baseLightness: color.channel($color, "lightness", $space: hsl);
+          $baseHue: color.channel($color, "hue", $space: hsl);
+          $baseSaturation: color.channel($color, "saturation", $space: hsl);
+
+          @each $shade, $percent in v.$shades {
+            $val: hsl($baseHue $baseSaturation $percent);
+            @if ($percent <= $baseLightness and ($percent + 8%) >= $baseLightness) {
+              $val: hsl($baseHue $baseSaturation $baseLightness);
+            }
+            & {
+              --#{$name}-#{$shade}: #{color.scale($val, $space: hsl)};
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body {
+    font-family: fonts.$font1;
+    background-color: var(--white);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  input {
+    border-radius: f.rem(6);
+    padding: f.rem(10) f.rem(16);
+    border: solid thin currentColor;
+    background-color: var(--neutral);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  button {
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: f.rem(4);
+    padding: f.rem(10) f.rem(16);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: var(--primary-700);
+    }
+  }
+
+  .navbar {
+    background-color: var(--neutral-50);
+    color: var(--neutral-700);
+  }
 }
