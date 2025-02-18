@@ -30,8 +30,8 @@ class RegisterRequest {
 
         // Validation du mot de passe (min 8 caractères, 1 lettre et 1 chiffre)
         $password = trim($data['password'] ?? '');
-        if (empty($password) || !preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/", $password)) {
-            $errors['password'] = "Le mot de passe doit contenir au moins 8 caractères, une lettre et un chiffre.";
+        if (empty($password) || !preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{12,}$/", $password)) {
+            $errors['password'] = "Le mot de passe doit contenir au moins 12 caractères, une lettre, un chiffre et un caractère spécial.";
         }
 
         // Validation de la confirmation du mot de passe
