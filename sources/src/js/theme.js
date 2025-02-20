@@ -12,9 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Ajouter un event listener pour basculer le mode manuellement
-    document.querySelector("#theme-toggle").addEventListener("click", function () {
-        document.documentElement.classList.toggle("dark");
-        const newTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-        localStorage.setItem("theme", newTheme);
-    });
+    const themeToggle = document.querySelector("#theme-toggle");
+    if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+            document.documentElement.classList.toggle("dark");
+            const newTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+            localStorage.setItem("theme", newTheme);
+        });
+    }
 });

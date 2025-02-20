@@ -16,5 +16,6 @@
 </div>
 <?php
 $content = ob_get_clean();
+$title = "Nouveau mot de passe";
 require __DIR__ . '/../layout.php';
 ?>

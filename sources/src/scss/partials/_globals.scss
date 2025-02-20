@@ -78,7 +78,6 @@
   button {
     background-color: var(--primary);
     color: var(--white);
-    border-radius: f.rem(4);
     padding: f.rem(10) f.rem(16);
     border: none;
     cursor: pointer;
@@ -97,5 +96,23 @@
   .page-title {
     color: var(--nav-text);
   }
-
+.page-content{
+  margin: 1rem 0 ;
+}
+  .tableaubord {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 4rem; // Suppression du gap dupliqué
+  }
+  .tableau li.icone {
+    cursor: pointer;
+  }
+  .subtitle {
+    font-size: f.rem(24);
+    font-weight: 700;
+    margin-bottom: f.rem(16);
+    margin-bottom: 2rem;
+  }
+  
 }

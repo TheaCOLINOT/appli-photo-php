@@ -63,3 +63,10 @@ npm run build
 2. Si les styles ne se mettent pas à jour :
    - Vérifier que la commande `npm run build` a été exécutée
    - Vider le cache du navigateur
+
+## Accès à la Documentation
+
+La documentation est accessible en ligne via l'URL suivante :
+
+[https://TheaCOLINOT.github.io/appli-photo-php/](https://TheaCOLINOT.github.io/appli-photo-php/)
+

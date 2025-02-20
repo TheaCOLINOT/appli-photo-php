@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <div class="container">
-    <h1 class="text-3xl font-bold mb-6">Mes Groupes</h1>
+    <h1 class="title">Mes Groupes</h1>
 
     <?php
     // Initialiser deux tableaux pour stocker les groupes selon la propriété
@@ -19,8 +19,8 @@
     ?>
 
     <?php if (!empty($ownerGroups)): ?>
-        <h2 class="text-2xl font-semibold mb-4">Groupes dont vous êtes propriétaire</h2>
-        <ul class="tableau">
+        <h2 class="subtitle">Groupes dont vous êtes propriétaire</h2>
+        <ul class="tableaubord grid">
             <?php foreach ($ownerGroups as $group): ?>
                 <!-- Ajout de data-url et d'un onClick sur le <li> -->
                 <li class="icone flex items-center justify-between cursor-pointer"
@@ -49,7 +49,7 @@
     <?php endif; ?>
 
     <?php if (!empty($otherGroups)): ?>
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Groupes dont vous êtes membre</h2>
+        <h2 class="subtitle">Groupes dont vous êtes membre</h2>
         <ul class="tableau">
             <?php foreach ($otherGroups as $group): ?>
                 <!-- Pour les groupes dont vous êtes membre, on redirige vers /photos -->
@@ -73,5 +73,6 @@
 </div>
 <?php
 $content = ob_get_clean();
+$title = "Mes Groupes";
 require __DIR__ . '/../layout.php';
 ?>

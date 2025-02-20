@@ -1,0 +1,33 @@
+@use "../partials/functions" as f;
+@layer components {
+	.apropos {
+		margin: 1rem auto;
+
+		&--content--text{
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			color: var(--black);
+			max-width: 50rem;
+		}
+		&--content--image{
+			display: flex;
+			justify-content: center;
+			max-width:50rem ;
+		}
+		&--item--revers {
+			display: flex;
+			justify-content: center;
+			flex-direction: row-reverse;
+		}
+		@media (width <= f.screen(md)) {
+			padding: 1rem ;
+			
+			&--item--revers {
+				// display: flex;
+				justify-content: center;
+				flex-direction: column;
+			}
+		}	
+	}
+}
