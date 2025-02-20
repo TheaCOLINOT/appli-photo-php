@@ -23,9 +23,9 @@
 
   /* --- CARTES --- */
   .card {
-    background-color: map.get(v.$colors, "white");
+    background-color: var(--white);
     border-radius: f.rem(8);
-    box-shadow: 0 f.rem(4) f.rem(8) map.get(v.$colors, "shadow-color");
+    box-shadow: 0 f.rem(4) f.rem(8) var(--shadow-color);
     overflow: hidden; /* Pour éviter que l'image déborde sur les coins arrondis */
     display: flex;
     flex-direction: column; /* Pour empiler le texte puis l'image */
@@ -39,7 +39,7 @@
       text-transform: uppercase;
       font-weight: 600;
       margin-bottom: f.rem(4);
-      color: map.get(v.$colors, "text-color");
+      color: map.get(v.$colors, var(--text-color));
     }
 
     &__label {

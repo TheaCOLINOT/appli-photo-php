@@ -58,10 +58,10 @@
 <!-- SECTION Catégories -->
 <section class="categories container">
     <h2 class="categories__title">Categories</h2>
-    <div class="categories__grid">
+    <div class="grid">
 
         <!-- Carte 1 : THEA -->
-        <div class="card">
+        <div class="card col-lg-6 col-md-4 col-12 col-xxl-4">
             <span class="card__label">CATEGORY</span>
             <span class="card__project">PROJECT 20XX</span>
             <span class="card__title">THEA-COFOUNDER</span>
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Carte 2 : MARIAM -->
-        <div class="card">
+        <div class="card col-lg-6 col-md-4 col-12 col-xxl-4">
             <span class="card__label">CATEGORY</span>
             <span class="card__project">PROJECT 20XX</span>
             <span class="card__title">MARIAM-COFOUNDER</span>
@@ -89,7 +89,7 @@
         </div>
 
         <!-- Carte 3 : JOEL -->
-        <div class="card">
+        <div class="card col-lg-6 col-md-4 col-12 col-xxl-4">
             <span class="card__label">CATEGORY</span>
             <span class="card__project">PROJECT 20XX</span>
             <span class="card__title">JOEL-COFOUNDER</span>
