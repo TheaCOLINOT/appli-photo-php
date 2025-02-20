@@ -2,9 +2,10 @@
 @use "../partials/functions" as f;
 @layer components {
 	.navbar {
-		//background-color: var(--neutral-50);
-		//color: var(--neutral-700);
+		background-color: var(--nav-color);
+		color: var(--nav-text);
 		padding: f.rem(16) 0;
+		
 		.container {
 			@include m.flexbox($direction: column, $align: flex-start);
 			position: relative;
@@ -15,7 +16,7 @@
 		a {
 			@include m.resetA;
 			.nav_link {
-			color: var(primary-700);
+			color: neutral;
 			}
 		}
 

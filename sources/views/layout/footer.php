@@ -15,44 +15,14 @@
 						</div>
 					</a>
 
-					<span class="footer__subtitle">
-						Votre premier Application de photo Grouper partager entre amis Votre premier Application de photo Grouper partager entre amis Votre premier Application de photo Grouper partager entre amis <div class="p-adr h-adr">
-
-							<span class="p-country-name">france</span>
-
-						</div>
+					
+				
 				</div>
 			</div>
 
 			<ul class="footer__links">
-				<ul class="footer__links2">
-					<p class="footer__header">Saison</p>
-					<li>
-						<a href="/ski" class="footer__link">Ski</a>
-					</li>
-					<li>
-						<a href="/dubai" class="footer__link">Dubai</a>
-					</li>
-					<li>
-						<a href="/zanzibar" class="footer__link">zanzibar</a>
-					</li>
-				</ul>
-				<ul class="footer__links2">
-					<p class="footer__header">Galerie </p>
-					<li>
-						<a href="/galerie" class="footer__link">Mai 2023</a>
-					</li>
-					<li>
-						<a href="/galerie" class="footer__link">Juillet 2023</a>
-					</li>
-					<li>
-						<a href="/galerie" class="footer__link">Hiver 2023</a>
-					</li>
-
-					<li>
-						<a href="/contact" class="footer__link">Contact</a>
-					</li>
-				</ul>
+				
+				
 
 		</div>
 		<p class="footer__copy">&#169; JoelAka. All right reserved</p>

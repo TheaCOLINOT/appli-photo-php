@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <div class="container">
-  <h1 class="title">Tableau de bord des Groupes</h1>
+  <h1 class="page-title">Tableau de bord des Groupes</h1>
 
   <div class="grid tableaubord"> 
     <div class="col-12 col-xxl-6 tableaubord--item">

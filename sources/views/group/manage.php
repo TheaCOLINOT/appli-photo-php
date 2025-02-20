@@ -72,7 +72,7 @@
             </div>
             <div>
                 <label class="input--label" for="role">Rôle :</label>
-                <select name="role" id="role">
+                <select name="role" id="role" class="input--select">
                     <option value="read">Lecteur (voir seulement)</option>
                     <option value="write">Éditeur (uploader et voir)</option>
                 </select>
