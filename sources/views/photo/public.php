@@ -5,5 +5,6 @@
 </div>
 <?php 
 $content = ob_get_clean();
+$title = "Photo partagée publiquement";
 require __DIR__ . '/../layout.php';
 ?>

@@ -6,7 +6,7 @@
             <label for="name" class="block text-gray-700 font-medium">Nom du groupe :</label>
             <input type="text" name="name" id="name" class="w-full border rounded px-3 py-2" placeholder="Nom du groupe" required>
         </div>
-        <button type="submit" class="button button--primary">Créer le groupe</button>
+        <button type="submit" class="button button--sm button--primary">Créer le groupe</button>
     </form>
 </div>
 <?php
