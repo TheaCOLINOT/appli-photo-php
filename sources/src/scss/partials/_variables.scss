@@ -14,10 +14,13 @@ $colors: (
 	"primary": #2A767D,
 	"secondary": #3E900B,
 	"accent": #dc3545,
-	"text-color": #3f3f46,
+	"text-color": #e4e4e7,
 	"shadow-color": rgba(0, 0, 0, 0.1),
 	// pour l'exo...
-	"neutral": #f8f9fa,
+	"neutral": #0b242b,
+	"nav-color": #ffffff,
+	"nav-text":#013e41,
+
 );
 
 
@@ -25,18 +28,20 @@ $colors: (
 $colors-dark: (
 	"red": #e63946,
 	"grey": #adb5bd,
-	"blue": #1e4e5a,
-	"white": #121212,
-	"black": #ffffff,
+	"blue": #0b242b,
+	"white": #252525,
+	"black": #cacaca,
 	"purple": #9b30ff,
 	"yellow": #e6c229,
 	"green": #00b140,
-	"primary": #1e4e5a,
-	"secondary": #2e7300,
-	"accent": #e63946,
-	"text-color": #e4e4e7,
+	"primary": #0d2929,
+	"secondary": #0d2929,
+	"accent": #501117,
+	"text-color": #c7c7c7,
 	"shadow-color": rgba(255, 255, 255, 0.1),
 	"neutral": #1e1e1e,
+	"nav-color": #0d2929,
+	"nav-text":#c7c7c7,
 );
 
 
