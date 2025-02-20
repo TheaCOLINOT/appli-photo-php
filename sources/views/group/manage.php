@@ -13,7 +13,7 @@
     <?php endif; ?>
     
     <!-- Tableau des membres -->
-    <h2>Membres du groupe</h2>
+    <h2 class="title">Membres du groupe</h2>
     <?php if (!empty($members)): ?>
         <!-- Wrapper responsive pour le tableau -->
         <div class="table-wrapper">
