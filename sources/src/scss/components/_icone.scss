@@ -2,19 +2,7 @@
 @use "../partials/mixins" as m;
 
 @layer components {
-  .tableau {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4rem; // Suppression du gap dupliqué
-    padding-bottom: 2rem;
-  }
-  .tableau li.icone {
-    cursor: pointer;
-  }
-  
+
 
   .icone {
     @include m.resetA;
@@ -34,9 +22,23 @@
       color: var(--white);
       transform: scale(1.05); // Ajout d'un petit effet au survol
     }
+    &--lg {
+			padding: f.rem(16) f.rem(24);
+		}
+		&--sm {
+			padding: f.rem(8) f.rem(12);
+			font-size: f.rem(14);
+			line-height: f.rem(16);
+			max-width: f.rem(200);
+		}
   }
   .icone a {
     text-decoration: none;
     color: inherit;
+  }
+
+  .tableaubord--item{
+    max-width: 100%;
+    max-height: 100%;
   }
 }
