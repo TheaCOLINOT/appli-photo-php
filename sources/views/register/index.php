@@ -13,7 +13,7 @@
                 <input type="text" name="nom" class="input input--lg" 
                     value="<?php echo htmlspecialchars(Session::getOldInput('nom')); ?>">
                 <?php if (Session::hasError('nom')): ?>
-                    <p class="text-red-500 text-sm"><?php echo Session::getError('nom'); ?></p>
+                    <p ><?php echo Session::getError('nom'); ?></p>
                 <?php endif; ?>
             </div>
             <div class="input--div">
@@ -21,7 +21,7 @@
                 <input type="text" name="prenom" class="input input--lg" 
                     value="<?php echo htmlspecialchars(Session::getOldInput('prenom')); ?>">
                 <?php if (Session::hasError('prenom')): ?>
-                    <p class="text-red-500 text-sm"><?php echo Session::getError('prenom'); ?></p>
+                    <p ><?php echo Session::getError('prenom'); ?></p>
                 <?php endif; ?>
             </div>
             <div class="input--div">
@@ -29,21 +29,21 @@
                 <input type="email" name="email" class="input input--lg" 
                     value="<?php echo htmlspecialchars(Session::getOldInput('email')); ?>">
                 <?php if (Session::hasError('email')): ?>
-                    <p class="text-red-500 text-sm"><?php echo Session::getError('email'); ?></p>
+                    <p ><?php echo Session::getError('email'); ?></p>
                 <?php endif; ?>
             </div>
             <div class="input--div">
                 <label class="input--label">Mot de passe</label>
                 <input type="password" name="password" class="input input--lg">
                 <?php if (Session::hasError('password')): ?>
-                    <p class="text-red-500 text-sm"><?php echo Session::getError('password'); ?></p>
+                    <p ><?php echo Session::getError('password'); ?></p>
                 <?php endif; ?>
             </div>
             <div class="input--div">
                 <label class="input--label">Confirmer le mot de passe</label>
                 <input type="password" name="password_confirmation" class="input input--lg">
                 <?php if (Session::hasError('password_confirmation')): ?>
-                    <p class="text-red-500 text-sm"><?php echo Session::getError('password_confirmation'); ?></p>
+                    <p ><?php echo Session::getError('password_confirmation'); ?></p>
                 <?php endif; ?>
             </div>
             <button type="submit" class="button button--sm button--primary">

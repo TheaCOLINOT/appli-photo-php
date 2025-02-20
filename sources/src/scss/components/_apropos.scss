@@ -1,8 +1,19 @@
 @use "../partials/functions" as f;
+@use "../partials/mixins" as m;
+
 @layer components {
 	.apropos {
 		margin: 1rem auto;
+		& a{
+			@include m.resetA;
+			@include m.resetButton;
 
+			text-decoration:underline;
+			&:hover{
+				text-decoration:none;
+				color: var(--primary-800);
+			}
+		}
 		&--content--text{
 			display: flex;
 			justify-content: center;
