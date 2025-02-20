@@ -1,10 +1,13 @@
 <?php ob_start(); ?>
 <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
-    <h2 class="text-2xl font-bold mb-6">Inscription</h2>
+    <h2 class="title">Inscription</h2>
 
-    <div class="form form--div">
-        <img src="/public/img1.jpg" alt="image présentation" class="image image--md image--square">
-        <form class="form--md" method="POST" action="/register">
+    <div class="grid">
+       <div class="col-lg-6 col-md-6 image col-xl-6 col-xxl-6" >
+            <img src="/public/img1.jpg" alt="image présentation" class="image image--md image--square">
+        </div>
+
+        <form  method="POST" class=" col-lg-6 col-md-6 col-12 col-xxl-6"  action="/register">
             <div class="input--div">
                 <label class="input--label">Nom</label>
                 <input type="text" name="nom" class="input input--lg" 
@@ -43,7 +46,7 @@
                     <p class="text-red-500 text-sm"><?php echo Session::getError('password_confirmation'); ?></p>
                 <?php endif; ?>
             </div>
-            <button type="submit" class="button button--primary">
+            <button type="submit" class="button button--sm button--primary">
                 S'inscrire
             </button>
             <p class="mt-4 text-center text-gray-600 text-sm">
@@ -54,5 +57,6 @@
 </div>
 <?php 
 $content = ob_get_clean();
+$title = "Inscription";
 require __DIR__ . '/../layout.php';
 ?>

@@ -15,5 +15,6 @@
 </div>
 <?php
 $content = ob_get_clean();
+$title = "Réinitialisation du mot de passe";
 require __DIR__ . '/../layout.php';
 ?>

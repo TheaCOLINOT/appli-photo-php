@@ -3,16 +3,23 @@
 
 @layer components {
   .form {
+    display: flex;
+    flex-direction: column;
     padding-bottom: 2rem;
     width: 100%;
-    
+    position: relative;
+    justify-content: center;
     & > div {
       margin-bottom: f.rem(16);
     }
     & > div {
       margin-bottom: f.rem(16);
     }
-
+    &--footer {
+      display: flex;
+      gap: .1rem;
+      flex-direction: column;
+    }
     &--div {
       display: flex;
       justify-content: space-around;
@@ -20,32 +27,34 @@
     }
 
     &--md {
-      width: 45%;
+      width: 40%;
     }
 
     &--input {
     }
 
-    @media (max-width: 768px) {
-      &--div {
-        display: block;
-      }
+    // @media (max-width: 768px) {
+    //   &--div {
+    //     display: block;
+    //   }
 
-      &--md {
-        width: 100%;
-        margin-top: 2vh;
-      }
+    //   &--md {
+    //     width: 100%;
+    //     margin-top: 2vh;
+    //   }
 
-      &--label {
-        width: f.rem(130);
-        margin-bottom: 0;
-        margin-right: f.rem(10);
-        display: inline-block; // Alignement en ligne pour desktop
-      }
+    //   &--label {
+    //     width: f.rem(130);
+    //     margin-bottom: 0;
+    //     margin-right: f.rem(10);
+    //     display: inline-block; // Alignement en ligne pour desktop
+    //   }
 
-      .input {
-        max-width: f.rem(300); // Évite un input trop large
-      }
-    }
+    //   .input {
+    //     max-width: f.rem(300); // Évite un input trop large
+    //   }
+    // }
+  
   }
+  
 }

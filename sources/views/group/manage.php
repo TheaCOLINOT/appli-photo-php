@@ -77,7 +77,7 @@
                     <option value="write">Éditeur (uploader et voir)</option>
                 </select>
             </div>
-            <button type="submit">Ajouter le membre</button>
+            <button type="submit" class="button--sm button--primary">Ajouter le membre</button>
         </form>
     <?php endif; ?>
 </div>

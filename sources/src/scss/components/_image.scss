@@ -5,6 +5,8 @@
 		display: inline-block;
 		overflow: hidden;
 		object-fit: cover;
+		// display: flex;
+		// justify-content: center;
 
 		&:hover {
 			background-color: var(--black-hover);
@@ -68,6 +70,12 @@
 						#{$prop}: $value;
 					}
 				}
+			}
+			&--circle {
+				@each $prop, $value in f.image-size(50vw, 50vw) {
+					#{$prop}: $value;
+				}
+				border-radius: 50%;
 			}
 		}
 	}
