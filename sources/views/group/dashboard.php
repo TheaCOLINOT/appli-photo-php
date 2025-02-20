@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <div class="container">
-  <h1 class="text-3xl font-bold mb-6">Tableau de bord des Groupes</h1>
+  <h1 class="page-title">Tableau de bord des Groupes</h1>
 
   <div class="tableau">
     <a href="/group/create" class="icone">

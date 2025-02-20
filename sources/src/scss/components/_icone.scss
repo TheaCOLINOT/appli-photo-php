@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     gap: 4rem; // Suppression du gap dupliqué
     padding-bottom: 2rem;
+    color: var(--nav-text);
   }
   .tableau li.icone {
     cursor: pointer;
@@ -26,7 +27,7 @@
     padding: 5rem;
     font-size: 2rem;
     border-radius: 1rem;
-    background-color: var(--primary-100);
+    background-color: var(--blue);
     transition: all 0.3s ease; // Ajout d'une transition fluide
 
     &:hover {

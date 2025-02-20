@@ -15,13 +15,14 @@
     width: 100%;
     border-collapse: collapse;
     background-color: map.get(v.$colors, "white");
-    border: 1px solid map.get(v.$colors, "grey");
-    border-radius: f.rem(4);
+    border: 1px solid map.get(v.$colors, "black");
+    // border-radius: f.rem(1);
     overflow: hidden;
     margin-bottom: f.rem(20);
+    // border-color: var(--black);
 
     thead {
-      background-color: color.adjust(map.get(v.$colors, "grey"), $lightness: 40%);
+      background-color: var(--dark-grey);
       tr {
         th {
           padding: f.rem(12);
@@ -29,17 +30,19 @@
           text-align: left;
           font-weight: bold;
           font-size: f.rem(16);
-          color: map.get(v.$colors, "text-color");
+          color: var(--black);
         }
       }
     }
 
     tbody {
+      border: 1px solid map.get(v.$colors, "black");
       tr {
         transition: background-color 0.2s ease;
-        
+        border: 1px solid map.get(v.$colors, "black");
+
         &:nth-child(even) {
-          background-color: map.get(v.$colors, "neutral");
+          background-color: var(--blue);
         }
         
         &:hover {
@@ -48,10 +51,10 @@
         
         td {
           padding: f.rem(10);
-          border: 1px solid map.get(v.$colors, "grey");
+          border: 1px solid map.get(v.$colors, "black");
           vertical-align: middle;
           font-size: f.rem(14);
-          color: map.get(v.$colors, "text-color");
+          color: var(--blue);
         }
 
         // Conteneur pour les actions (boutons et sélecteur)

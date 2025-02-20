@@ -5,7 +5,7 @@
 $colors: (
 	"red": #dc3545,
 	"grey": #6c757d,
-	"blue": #2A767D,
+	"blue": #3a575a,
 	"white": #fff,
 	"black": #000,
 	"purple": #c026d3,
@@ -14,13 +14,14 @@ $colors: (
 	"primary": #2A767D,
 	"secondary": #3E900B,
 	"accent": #dc3545,
-	"text-color": #e4e4e7,
+	"text-color": #020202,
 	"shadow-color": rgba(0, 0, 0, 0.1),
 	// pour l'exo...
 	"neutral": #0b242b,
 	"nav-color": #ffffff,
 	"nav-text":#013e41,
-
+	"dark-grey":#587e7e,
+	"eternal-white": #fff,
 );
 
 
@@ -42,6 +43,8 @@ $colors-dark: (
 	"neutral": #1e1e1e,
 	"nav-color": #0d2929,
 	"nav-text":#c7c7c7,
+	"dark-grey":#3e5a5a,
+	"eternal-white": #fff,
 );
 
 

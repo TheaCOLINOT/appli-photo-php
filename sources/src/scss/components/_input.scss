@@ -36,6 +36,10 @@
 			height: f.rem(30);
 		}
 
+		&--select {
+			background-color: var(--dark-grey);
+		}
+
 		// Responsive pour les écrans plus larges (≥ 768px)
 		@media (max-width: 768px) {
 			&--div {
