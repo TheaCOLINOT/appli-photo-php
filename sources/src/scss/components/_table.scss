@@ -41,14 +41,14 @@
         transition: background-color 0.2s ease;
         border: 1px solid map.get(v.$colors, "black");
 
-        &:nth-child(even) {
-          background-color: var(--blue);
-        }
-        
-        &:hover {
-          background-color: color.adjust(map.get(v.$colors, "neutral"), $lightness: 5%);
-        }
-        
+        // &:nth-child(even) {
+        //   background-color: var(--blue);
+        // }
+
+        // &:hover {
+        //   background-color: color.adjust(map.get(v.$colors, "neutral"), $lightness: 5%);
+        // }
+
         td {
           padding: f.rem(10);
           border: 1px solid map.get(v.$colors, "black");
@@ -73,5 +73,4 @@
       }
     }
   }
-
 }
