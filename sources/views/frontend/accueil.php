@@ -20,7 +20,12 @@
         <div class="apropos--item grid">
             <div class="apropos--content--text col-lg-6 col-md-6 col-12 col-xxl-6">
                 <p>
-                    Votre première Application de photo Grouper partager entre amis, etc...
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+
                 </p>
                 <a href="/login">En savoir plus</a>
             </div>
@@ -33,6 +38,10 @@
             <div class="apropos--content--text col-lg-6 col-md-6 col-12 col-xxl-6">
                 <p>
                     Votre première Application de photo Grouper partager entre amis, etc...
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
                 </p>
                 <a href="/login">En savoir plus</a>
             </div>
@@ -45,6 +54,10 @@
             <div class="apropos--content--text col-lg-6 col-md-6 col-12 col-xxl-6">
                 <p>
                     Votre première Application de photo Grouper partager entre amis, etc...
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
+                    Votre première Application de photo Grouper partager entre amis,
                 </p>
                 <a href="/login">En savoir plus</a>
             </div>
