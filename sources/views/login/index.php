@@ -4,7 +4,7 @@
     <h2 class="title">Connexion</h2>
 
     <?php if (Session::hasError('auth')): ?>
-      <div class="mb-4 p-4 bg-red-100 text-red-700 rounded">
+      <div class="col-lg-6 col-md-6 image col-xl-6 col-xxl-6">
         <?php echo Session::getError('auth'); ?>
       </div>
     <?php endif; ?>
