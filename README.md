@@ -70,3 +70,7 @@ La documentation est accessible en ligne via l'URL suivante :
 
 [https://TheaCOLINOT.github.io/appli-photo-php/](https://TheaCOLINOT.github.io/appli-photo-php/)
 
+Le lien de la maquette sur Figma :
+
+https://www.figma.com/design/KanmF5QCq0Fd9snbzcei1u/Phphoto?node-id=6-2&p=f
+
