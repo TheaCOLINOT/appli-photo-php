@@ -66,9 +66,9 @@
     <?php if (Session::get('user')['id'] === $group->owner_id): ?>
         <h3>Ajouter un membre</h3>
         <form action="/groups/add-member/<?= htmlspecialchars($group->name) ?>" method="post" class="form">
-            <div>
+            <div class="input--div">
                 <label for="user_email">Ajouter un utilisateur :</label>
-                <input type="text" name="user_email" id="user_email" placeholder="Email" required>
+                <input type="text" name="user_email" class="input  input--lg"id="user_email" placeholder="Email" required>
             </div>
             <div>
                 <label class="input--label" for="role">Rôle :</label>
