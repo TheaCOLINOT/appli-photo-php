@@ -7,7 +7,7 @@
         <form action="/upload" method="post" enctype="multipart/form-data" class="form">
             <label class="label">Choisissez une image :</label>
             <input type="file" name="photo" accept="image/*" class="input">
-            <button type="submit" class="button button--primary button--lg">Ajouter une photo</button>
+            <button type="submit" class="button button--sm button--primary">Ajouter une photo</button>
         </form>
     </div>
 
